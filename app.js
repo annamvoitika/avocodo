@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var ejs = require('ejs');
+var exhbs = require('express-handlebars');
 
 var homeRouter = require('./routes/home');
 var userRouter = require('./routes/user');
@@ -11,6 +13,8 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.engine('handlebars', exhbs());
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
