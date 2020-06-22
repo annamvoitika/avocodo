@@ -5,7 +5,7 @@ var User = require('../../models/user');
 
 describe('User model', function() {
   beforeEach(function(done) {
-      mongoose.connection.collections.user.drop(function() {
+      mongoose.connection.collections.users.drop(function() {
           done();
       });
   });
