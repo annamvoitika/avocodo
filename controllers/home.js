@@ -1,4 +1,4 @@
-var HomeController = {
+const HomeController = {
   Index: function(req, res) {
     res.render('home/index', { title: 'Avocodo' });
   }
