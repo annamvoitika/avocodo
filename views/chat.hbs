@@ -8,6 +8,9 @@
 </head>
 <body>
   <h1>Plenty of Dish: let's chat </h1>
+  {{#each user}}
+  <h2>You connected with {{this.name}}.</h2>
+  {{/each}}
 <input type = "text" id="username" />
 <button type = "submit" id="change_username">Click to save name</button>
 

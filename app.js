@@ -27,17 +27,22 @@ app.use("/public", express.static('public'))
 app.use('/', homeRouter);
 app.use('/user', userRouter);
 
-app.get('/chat', (req, res) => {
-  res.render('chat.ejs')
-})
+app.get('/user/chat/:_id', (req, res) => {
+  const User = require('./models/user');
 
+  User.find({_id: req.params._id}, function(err, user) {
+    if (err) {
+      throw err;
+    }
+    res.render('chat.hbs', { user: user});
+  });
+});
 //socket.io
 
 
 io.on('connection', (socket) => {
   console.log("New client connected")
 
-  // socket.username = data.username;
 
   socket.on('change_username', (data) => {
     socket.username = data.username;
