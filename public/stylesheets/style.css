@@ -8,7 +8,8 @@ a {
 }
 
 .user-short-info {
-  background-color: #f4f1bb;
+  background-color: #f5e6e8;
+  border-radius: 6px;
 }
 
 .user {
