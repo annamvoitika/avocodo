@@ -5,11 +5,11 @@ const UserController = {
     User.find(function(err, user) {
       if (err) { throw err; }
 
-      res.render('user/index', { user: user });
+      res.render('user/index.hbs', { user: user });
     });
   },
   New: function(req, res) {
-    res.render('user/new', {});
+    res.render('user/new.hbs', {});
   },
   Create: function(req, res) {
     var user = new User(req.body);
@@ -24,7 +24,7 @@ const UserController = {
       if (err) {
         throw err;
       }
-      res.render('user/profile', { user: user});
+      res.render('user/profile.hbs', { user: user});
     });
   }
 

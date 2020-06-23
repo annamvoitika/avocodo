@@ -18,3 +18,13 @@ a {
 h1 {
   color: #ed6a5a;
 }
+
+#status {
+  color: #5ca4a9;
+}
+
+#feedback {
+  position: fixed;
+top: 50%;
+left: 50%;
+}

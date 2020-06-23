@@ -1,6 +1,6 @@
 const HomeController = {
   Index: function(req, res) {
-    res.render('home/index', { title: 'Avocodo' });
+    res.render('home/index.hbs', { title: 'Avocodo' });
   }
 };
 
