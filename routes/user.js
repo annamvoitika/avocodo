@@ -7,5 +7,6 @@ router.get('/', UserController.Index);
 router.post('/', UserController.Create);
 router.get('/new', UserController.New);
 router.get('/profile/:_id', UserController.ViewProfile);
+router.get('/bachelors', UserController.Random);
 
 module.exports = router;
