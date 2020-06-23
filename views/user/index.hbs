@@ -1,8 +1,19 @@
 
 <h1>User</h1>
 <ul class="user">
-{{#each user}}
-<li>{{this.name}}</li>
-{{/each}}
+  {{#each user}}
+  <li>Name: {{this.name}}</li>
+  <li>Age: {{this.age}}</li>
+  <li>Location: {{this.location}}</li>
+  <li>Zodiac Sign: {{this.zodiac}}</li>
+  <li>Favourite Breakfast Dish: {{this.breakfast}}</li>
+  <li>What Lunch Dreams are made of: {{this.lunch}}</li>
+  <li>Winner Winner ... Dinner: {{this.dinner}}</li>
+  <li>Save space for dessert: {{this.dessert}}</li>
+  <li>In the mornings I drink: {{this.amdrink}}</li>
+  <li>PM poison of choice: {{this.pmdrink}}</li>
+  <li>Guilty pleasures I don't share: {{this.guilty}}</li>
+  <br>
+  {{/each}}
 </ul>
-<a class="new-user-link" href="/user/new">New user</a> 
+<a class="new-user-link" href="/user/new">New user</a>

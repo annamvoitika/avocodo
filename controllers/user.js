@@ -1,6 +1,6 @@
-var User = require('../models/user');
+const User = require('../models/user');
 
-var UserController = {
+const UserController = {
   Index: function(req, res) {
     User.find(function(err, user) {
       if (err) { throw err; }
