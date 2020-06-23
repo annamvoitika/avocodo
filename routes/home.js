@@ -8,5 +8,6 @@ router.get('/signin', HomeController.UserSignin);
 router.post('/signin', HomeController.Signin);
 router.get('/signup', HomeController.UserSignup);
 router.post('/signup', HomeController.Signup);
+router.get('/error', HomeController.Error);
 
 module.exports = router;

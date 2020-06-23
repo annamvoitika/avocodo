@@ -4,7 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const ejs = require('ejs');
-const exhbs = require('express-handlebars');
+const hbs = require('express-handlebars');
+const bcrypt = require('bcrypt')
 
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
@@ -13,9 +14,10 @@ const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 app.set('view engine', 'ejs');
-app.engine('handlebars', exhbs());
-// app.set('view engine', 'hbs'); 
+// app.engine('handlebars', exhbs());
+// app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(express.json());
