@@ -22,6 +22,15 @@ const UserController = {
   All: function(req, res) {
     res.render('user/all', {});
   },
+  ViewProfile: function(req, res){
+    User.find({_id: req.params._id}, function(err, user) {
+      if (err) {
+        throw err;
+      }
+      res.render('user/profile', { user: user});
+    });
+  }
+
 }
 
 module.exports = UserController;

@@ -4,5 +4,17 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #5ca4a9;
+}
+
+.user-short-info {
+  background-color: #f4f1bb;
+}
+
+.user {
+  list-style: none;
+}
+
+h1 {
+  color: #ed6a5a;
 }
