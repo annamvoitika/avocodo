@@ -15,7 +15,7 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.engine('handlebars', exhbs());
-app.set('view engine', 'hbs');
+// app.set('view engine', 'hbs'); 
 
 app.use(logger('dev'));
 app.use(express.json());
