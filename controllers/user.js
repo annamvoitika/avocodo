@@ -26,7 +26,7 @@ const UserController = {
       }
       res.render('user/profile.hbs', { user: user});
     });
-  }
+  },
 
 }
 
