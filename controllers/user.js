@@ -18,7 +18,10 @@ var UserController = {
 
       res.status(201).redirect('/user');
     });
-  }
+  },
+  All: function(req, res) {
+    res.render('user/all', {});
+  },
 }
 
 module.exports = UserController;
