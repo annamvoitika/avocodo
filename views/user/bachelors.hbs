@@ -1,10 +1,11 @@
 <h1>Your potential soulmates:</h1>
+
 <ul class="user">
   {{#each user}}
-  <div class = "user-short-info">
-  <li>Name: {{this.name}}</li>
-  <li>Age: {{this.age}}</li>
-  <li>Location: {{this.location}}</li>
+  <div class = profile-card>
+  <li>{{this.name}}</li>
+  <li>{{this.age}}</li>
+  <li>{{this.location}}</li>
   <a class="view-user-profile" href="/user/profile/{{this._id}}">View profile</a>
 </div>
   <br>

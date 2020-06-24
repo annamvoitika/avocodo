@@ -7,15 +7,19 @@ a {
   color: #5ca4a9;
 }
 
-.user-short-info {
-  background-color: #f5e6e8;
-  border-radius: 6px;
-}
-
 .user {
   list-style: none;
 }
 
 h1 {
   color: #ed6a5a;
+}
+
+.profile-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+max-width: 300px;
+margin: auto;
+text-align: center;
+background-color: #f5e6e8;
+border-radius: 6px;
 }
