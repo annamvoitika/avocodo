@@ -1,4 +1,5 @@
 const User = require('../models/user');
+// const session = require('express-session');
 
 const HomeController = {
   Index: function(req, res) {
@@ -45,10 +46,19 @@ const HomeController = {
       if(!user) {
         return res.redirect('/error');
       }
+
+      req.session.user = user;
+      console.log(req.session.user)
       return res.status(201).redirect('/')
     })
   },
 
+  CheckAuthenticated: function(req, res, next) {
+    if(!req.session.user) {
+      return res.redirect('/error');
+    }
+    return next();
+  },
 };
 
 module.exports = HomeController;
