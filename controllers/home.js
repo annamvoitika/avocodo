@@ -9,7 +9,11 @@ const HomeController = {
     res.render('home/signup.ejs', {});
   },
 
-  Signup: async function(req, res) {
+  Error: function(req, res) {
+    res.render('error', {});
+  },
+
+  Signup: function(req, res) {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
@@ -36,18 +40,15 @@ const HomeController = {
 
     User.findOne({email: email, password: password}, function(err, user) {
       if(err) {
-        res.status(201).redirect('/error')
+        return res.redirect('/error');
       }
       if(!user) {
-        res.status(201).redirect('/error')
+        return res.redirect('/error');
       }
       return res.status(201).redirect('/')
     })
   },
 
-  Error: function(req, res) {
-    res.render('error.ejs', {});
-  }
 };
 
 module.exports = HomeController;
