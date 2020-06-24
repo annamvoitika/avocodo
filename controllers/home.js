@@ -9,38 +9,52 @@ const HomeController = {
     res.render('home/signup.ejs', {});
   },
 
-  Signup: function(req, res) {
-    var user = new User(req.body);
-    user.save(function(err) {
-      if (err) { throw err; }
+  Signup: async function(req, res) {
+    try {
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      const {
+        name,
+        email,
+        password
+      } = req.body;
 
-      res.status(201).redirect('/')
-    });
+      var user = new User({
+        name,
+        email,
+        hashedPassword
+      });
+      user.save({
+      });
+      res.redirect('/signin');
+    } catch {
+      //change to redirect to same page if know its working
+      res.redirect('/error');
+    }
   },
+    // var user = new User(req.body);
+    // user.save(function(err) {
+    //   if (err) { throw err; }
+    //
+    //   res.status(201).redirect('/')
+    // });
 
   UserSignin: function(req, res) {
     res.render('home/signin.ejs', {});
   },
 
   Signin: function(req, res) {
-    User.findOne({
-      email: req.body.email},
+    User.findOne(
+      { email: 'req.body.email' },
+      { password: 'req.body.password' },
       function(user) {
-        // if (err) { throw err; }
-        if (user) {
-          if (user.password === req.body.password) {
-          var user = new User(req.email, req.name)
-        } else { res.render('error.ejs')
+        if (user) { res.status(201).redirect('/')
+        } else { res.status(201).redirect('/error')
       }
-      } else { res.render('error.ejs')
-    };
-      res.status(201).redirect('/')
-    });
-  },
+    })
+    },
 
   Error: function(req, res) {
     res.render('error.ejs', {});
-
   }
 };
 
