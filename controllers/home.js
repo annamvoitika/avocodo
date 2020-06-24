@@ -48,9 +48,13 @@ const HomeController = {
       }
 
       req.session.user = user;
-      console.log(req.session.user)
       return res.status(201).redirect('/')
     })
+  },
+
+  Logout: function(req, res) {
+    req.session.destroy();
+    return res.redirect('/signin')
   },
 
   CheckAuthenticated: function(req, res, next) {
