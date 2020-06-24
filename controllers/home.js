@@ -31,15 +31,19 @@ const HomeController = {
   },
 
   Signin: function(req, res) {
-    User.findOne(
-      { email: 'req.body.email' },
-      { password: 'req.body.password' },
-      function(user) {
-        if (user) { res.status(201).redirect('/')
-        } else { res.status(201).redirect('/error')
+    const email = req.body.email;
+    const password = req.body.password;
+
+    User.findOne({email: email, password: password}, function(err, user) {
+      if(err) {
+        res.status(201).redirect('/error')
       }
+      if(!user) {
+        res.status(201).redirect('/error')
+      }
+      return res.status(201).redirect('/')
     })
-    },
+  },
 
   Error: function(req, res) {
     res.render('error.ejs', {});
