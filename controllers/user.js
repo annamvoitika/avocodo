@@ -26,8 +26,13 @@ const UserController = {
       }
       res.render('user/profile', { user: user});
     });
+  },
+    RandomCatch: function(req, res) {
+        User.aggregate([{$sample: {size: 2}}], function(err, user) {
+      if (err) { throw err; }
+          res.render('user/catches', { user: user });
+         });
+      }
   }
-
-}
 
 module.exports = UserController;
