@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const UserController = require('../controllers/user')
+const HomeController = require('../controllers/home')
 
-router.get('/', UserController.Index);
-router.post('/', UserController.Create);
-router.get('/new', UserController.New);
+router.get('/', HomeController.CheckAuthenticated, UserController.Index);
+router.post('/', HomeController.CheckAuthenticated, UserController.Create);
+router.get('/new', HomeController.CheckAuthenticated, UserController.New);
 router.get('/profile/:_id', UserController.ViewProfile);
 
 module.exports = router;
