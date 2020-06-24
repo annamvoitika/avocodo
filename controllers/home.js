@@ -10,33 +10,21 @@ const HomeController = {
   },
 
   Signup: async function(req, res) {
-    try {
-      const hashedPassword = await bcrypt.hash(req.body.password, 10);
-      const {
-        name,
-        email,
-        password
-      } = req.body;
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
 
-      var user = new User({
-        name,
-        email,
-        hashedPassword
-      });
-      user.save({
-      });
-      res.redirect('/signin');
-    } catch {
-      //change to redirect to same page if know its working
-      res.redirect('/error');
-    }
+    const user = new User();
+    user.name = name;
+    user.email = email;
+    user.password = password;
+    user.save(function(err, savedUser) {
+      if(err) {
+        res.status(201).redirect('/error')
+      }
+      return res.status(201).redirect('/')
+    })
   },
-    // var user = new User(req.body);
-    // user.save(function(err) {
-    //   if (err) { throw err; }
-    //
-    //   res.status(201).redirect('/')
-    // });
 
   UserSignin: function(req, res) {
     res.render('home/signin.ejs', {});
