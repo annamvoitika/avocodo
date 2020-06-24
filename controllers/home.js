@@ -27,7 +27,7 @@ const HomeController = {
       if(err) {
         res.status(201).redirect('/error')
       }
-      return res.status(201).redirect('/')
+      return res.status(201).redirect('/signin')
     })
   },
 
