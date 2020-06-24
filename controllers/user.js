@@ -24,13 +24,13 @@ const UserController = {
       if (err) {
         throw err;
       }
-      res.render('user/profile', { user: user});
+      res.render('user/profile.hbs', { user: user});
     });
   },
     RandomCatch: function(req, res) {
         User.aggregate([{$sample: {size: 2}}], function(err, user) {
       if (err) { throw err; }
-          res.render('user/catches', { user: user });
+          res.render('user/catches.hbs', { user: user });
          });
       }
   }
