@@ -7,5 +7,6 @@ const HomeController = require('../controllers/home')
 router.get('/', HomeController.CheckAuthenticated, UserController.Index);
 router.post('/', HomeController.CheckAuthenticated, UserController.Create);
 router.get('/new', HomeController.CheckAuthenticated, UserController.New);
+router.get('/profile/:_id', UserController.ViewProfile);
 
 module.exports = router;
