@@ -31,7 +31,7 @@ const HomeController = {
   },
 
   UserSignin: function(req, res) {
-    res.render('home/signin.ejs', {});
+    res.render('home/signin.hbs', {});
   },
 
   Signin: function(req, res) {
@@ -43,14 +43,14 @@ const HomeController = {
         return res.redirect('/error');
       }
       if(!user) {
-        return res.render('error.hbs', {message: 'Email does not exist'});
+        return res.render('home/signin.hbs', {message: 'Email does not exist'});
         }
       user.comparePassword(password, function (err, isMatch) {
         if (isMatch && isMatch == true) {
           req.session.user = user;
           return res.redirect('/');
         } else {
-          return res.render('error.hbs', {message: 'Please use correct password'});
+          return res.render('home/signin.hbs', {message: 'Please use correct password'});
         }
     })
   });
