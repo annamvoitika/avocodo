@@ -63,6 +63,13 @@ const HomeController = {
     }
     return next();
   },
+
+  CheckLoggedIn: function(req, res, next) {
+    if(req.session.user) {
+      return res.redirect('/');
+    }
+    return next();
+  },
 };
 
 module.exports = HomeController;
