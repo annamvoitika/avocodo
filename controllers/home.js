@@ -1,5 +1,4 @@
 const User = require('../models/user');
-// const session = require('express-session');
 
 const HomeController = {
   Index: function(req, res) {
@@ -11,7 +10,7 @@ const HomeController = {
   },
 
   Error: function(req, res) {
-    res.render('error', {});
+    res.render('error.hbs', {});
   },
 
   Signup: function(req, res) {
@@ -44,19 +43,17 @@ const HomeController = {
         return res.redirect('/error');
       }
       if(!user) {
-        return res.redirect('/error');
-      }
-
+        return res.render('error.hbs', {message: 'Email does not exist'});
+        }
       user.comparePassword(password, function (err, isMatch) {
         if (isMatch && isMatch == true) {
-            req.session.user = user;
-            return res.redirect('/');
+          req.session.user = user;
+          return res.redirect('/');
         } else {
-            // return res.status(401).send();
-            return res.redirect('/error');
+          return res.render('error.hbs', {message: 'Please use correct password'});
         }
-      });
     })
+  });
   },
 
   Logout: function(req, res) {
