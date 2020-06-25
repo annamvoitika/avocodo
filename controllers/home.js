@@ -39,7 +39,7 @@ const HomeController = {
     const email = req.body.email;
     const password = req.body.password;
 
-    User.findOne({email: email, password: password}, function(err, user) {
+    User.findOne({email: email}, function(err, user) {
       if(err) {
         return res.redirect('/error');
       }
@@ -47,8 +47,15 @@ const HomeController = {
         return res.redirect('/error');
       }
 
-      req.session.user = user;
-      return res.status(201).redirect('/')
+      user.comparePassword(password, function (err, isMatch) {
+        if (isMatch && isMatch == true) {
+            req.session.user = user;
+            return res.redirect('/');
+        } else {
+            // return res.status(401).send();
+            return res.redirect('/error');
+        }
+      });
     })
   },
 
