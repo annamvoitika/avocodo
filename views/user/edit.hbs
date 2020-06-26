@@ -1,0 +1,116 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
+  <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link rel='stylesheet' href='/stylesheets/homepage.css' />
+</head>
+<body class="text-center">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<header class="masthead mb-auto">
+  <div class="inner">
+    <nav class="nav nav-masthead justify-content-center">
+      <a class="nav-link active" href="/user/myprofile">Profile</a>
+      <a class="nav-link" href="/user/matches">Your chosen bowlmates</a>
+      <a class="nav-link" href="/user/catches">More catches</a>
+    </nav>
+  </div>
+</header>
+
+<div class="edit-form">
+  {{#each user}}
+  <form id="edit-user-form" action="/user/{{this._id}}" method="post">
+    <div class="form-group">
+      <p class="edit-label"><label for="name">Edit Your Name: </label></p>
+      <br>
+      <input id="edit-name" type="text" name="name" value="{{this.name}}" rows="4" cols="50">
+    </div>
+    <br>
+    <div class="form-group">
+      <p class="edit-label"><label for="name">Edit Your Email: </label></p>
+      <br>
+      <input id="edit-email" type="email" name="email" value="{{this.email}}" rows="4" cols="50">
+    </div>
+    <br>
+    <div class="form-group">
+      <p class="edit-label"><label for="name">Edit Your Age: </label></p>
+      <br>
+      <input id="edit-age" type="number" min="0" name="age" value="{{this.age}}" rows="4" cols="50">
+    </div>
+    <br>
+    <div class="form-group">
+      <p class="edit-label"><label for="name">Edit Your Location: </label></p>
+      <br>
+      <input id="edit-location" type="text" name="location" value="{{this.location}}" rows="4" cols="50">
+    </div>
+    <br>
+    <div class="form-group">
+      <p class="edit-label"><label for="name">Edit Your Zodiac Sign: </label></p>
+      <br>
+      <input id="edit-zodiac" type="text" name="zodiac" value="{{this.zodiac}}" rows="4" cols="50">
+    </div>
+    <br>
+    <div class="form-group">
+      <p class="edit-label"><label for="name">Edit Your Breakfast: </label></p>
+      <br>
+      <input id="edit-breakfast" type="text" name="breakfast" value="{{this.breakfast}}" rows="4" cols="50">
+    </div>
+    <br>
+    <div class="form-group">
+      <p class="edit-label"><label for="name">Edit Your Lunch: </label></p>
+      <br>
+      <input id="edit-lunch" type="text" name="lunch" value="{{this.lunch}}" rows="4" cols="50">
+    </div>
+    <br>
+    <div class="form-group">
+      <p class="edit-label"><label for="name">Edit Your Dinner: </label></p>
+      <br>
+      <input id="edit-dinner" type="text" name="dinner" value="{{this.dinner}}" rows="4" cols="50">
+    </div>
+    <br>
+    <div class="form-group">
+      <p class="edit-label"><label for="name">Edit Your Dessert: </label></p>
+      <br>
+      <input id="edit-dessert" type="text" name="dessert" value="{{this.dessert}}" rows="4" cols="50">
+    </div>
+    <br>
+    <div class="form-group">
+      <p class="edit-label"><label for="name">Edit Your Morning Drink: </label></p>
+      <br>
+      <input id="edit-amdrink" type="text" name="amdrink" value="{{this.amdrink}}" rows="4" cols="50">
+    </div>
+    <br>
+    <div class="form-group">
+      <p class="edit-label"><label for="name">Edit Your PM Poison of Choice: </label></p>
+      <br>
+      <input id="edit-pmdrink" type="text" name="pmdrink" value="{{this.pmdrink}}" rows="4" cols="50">
+    </div>
+    <br>
+    <div class="form-group">
+      <p class="edit-label"><label for="name">Edit Your Guilty Pleasure: </label></p>
+      <br>
+      <input id="edit-guilty" type="text" name="guilty" value="{{this.guilty}}" rows="4" cols="50">
+    </div>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  {{/each}}
+</div>

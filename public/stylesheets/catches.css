@@ -1,0 +1,80 @@
+body {
+  height: 100%;
+  background-image: linear-gradient(to left, #E8CBC0 , #636FA4);
+  color: white;
+}
+
+h1 {
+  font: 45px "Lato", Helvetica, sans-serif;
+  text-shadow: 1px 1px 6px #6d6875;
+}
+
+.description {
+  font: 18px "Roboto Light", Helvetica, sans-serif;
+}
+.jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background: none;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+  background: none;
+}
+
+.jumbotron h1 {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+.album {
+  background: none;
+  color: #333;
+}
+
+.card-body {
+  background-color: #e8f1f2;
+}
+
+.btn {
+  background-color: #9bc1bc;
+  font: 16px "Roboto Light", Helvetica, sans-serif;
+  color: white;
+  border-style: none;
+}
+
+.btn-group {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font: 16px "Roboto Light", Helvetica, sans-serif;
+}
+
+.view-user-profile {
+  color: #ec368d;
+}
+
+a {
+  color: white;
+}

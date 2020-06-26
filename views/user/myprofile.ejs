@@ -15,6 +15,7 @@
       -ms-user-select: none;
       user-select: none;
     }
+
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
@@ -24,27 +25,44 @@
   <!-- Custom styles for this template -->
   <link rel='stylesheet' href='/stylesheets/homepage.css' />
 </head>
+
 <body class="text-center">
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
       <div class="inner">
         <nav class="nav nav-masthead justify-content-center">
-          <a class="nav-link" href="/user/myprofile">My Profile</a>
-          <a class="nav-link active" href="/">Homepage</a>
+          <a class="nav-link active" href="/user/myprofile">My Profile</a>
+          <a class="nav-link" href="/">Homepage</a>
           <a class="nav-link" href="/user/matches">Your chosen bowlmates</a>
           <a class="nav-link" href="/user/catches">More catches</a>
           <a class="nav-link" href="/logout">Log out</a>
         </nav>
       </div>
     </header>
-    <main role="main" class="inner cover">
-      <h1 class="cover-heading">Plenty of Dish</h1>
-      <p class="lead">There are billions of fruit, but only one perfect pear</p>
-    </main>
-    <footer class="mastfoot mt-auto">
-      <div class="inner">
-        Copyright &copy; Plenty of Dish 2020
-      </div>
-    </footer>
+<main role="main" class="inner cover">
+  <h1 class="cover-heading">Your Profile</h1>
+  <p class="lead mb-3">Name: <%= name %></p>
+  <p class="lead mb-3">Email: <%= email %></p>
+  <p class="lead mb-3">Age: <%= age %></p>
+  <p class="lead mb-3">Location: <%= location %></p>
+  <p class="lead mb-3">Zodiac Sign: <%= zodiac %></p>
+  <p class="lead mb-3">Favourite Breakfast Dish: <%= breakfast %></p>
+  <p class="lead mb-3">What Lunch Dreams are made of: <%= lunch %></p>
+  <p class="lead mb-3">Winner Winner ... Dinner: <%= dinner %></p>
+  <p class="lead mb-3">Save space for dessert: <%= dessert %></p>
+  <p class="lead mb-3">In the mornings I drink: <%= amdrink %></p>
+  <p class="lead mb-3">PM poison of choice: <%= pmdrink %></p>
+  <p class="lead mb-3">Guilty pleasures I don't share: <%= guilty %></p>
+  <br>
+  <form action="/user/<%= id %>/edit" method="get">
+    <input type="submit" value="Edit &#9998;"/>
+  </form>
+</main>
+<footer class="mastfoot mt-auto">
+  <div class="inner">
+    Copyright &copy; Plenty of Dish 2020
   </div>
+</footer>
+</div>
 </body>
+

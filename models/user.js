@@ -1,7 +1,10 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var UserSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   name: String,
+  email: String,
+  password: String,
+  date: {type: Date, default: Date.now},
   age: Number,
   location: String,
   zodiac: String,
@@ -14,6 +17,6 @@ var UserSchema = new mongoose.Schema({
   guilty: String
 });
 
-var User = mongoose.model('User', UserSchema);
+const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
