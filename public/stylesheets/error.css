@@ -1,0 +1,54 @@
+body {
+  height: 100%;
+  background-image: linear-gradient(to left, #E8CBC0 , #636FA4);
+  color: white;
+}
+DIV.container {
+  background-image: linear-gradient(to left, #E8CBC0 , #636FA4);
+  color: white;
+  border-radius: 1em;
+  padding: 5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+h1 {
+  font: 45px "Lato", Helvetica, sans-serif;
+  text-shadow: 1px 1px 6px #6d6875;
+  text-align:center;
+}
+.cover-container {
+  max-width: 50em;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+p {
+  text-align:center;
+}
+
+a {
+  color: white;
+}
+
+input[type=submit] {
+  border: 2px solid purple;
+  margin-bottom: .5rem;
+  border-radius: 4px;
+}
+
+form#signin {
+ text-align:center;
+}
+form#signup {
+ text-align:center;
+}
