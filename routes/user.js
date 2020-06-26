@@ -12,7 +12,7 @@ router.get('/catches', HomeController.CheckAuthenticated, UserController.RandomC
 router.get('/myprofile', HomeController.CheckAuthenticated, UserController.ViewUserProfile);
 router.get('/:_id/edit', HomeController.CheckAuthenticated, UserController.Edit);
 router.post('/:_id', HomeController.CheckAuthenticated, UserController.Update);
-// router.get('/chat/:_id', HomeController.CheckAuthenticated, UserController.Chat);
+router.get('/chat/:_id', HomeController.CheckAuthenticated, UserController.Chat);
 
 
 module.exports = router;

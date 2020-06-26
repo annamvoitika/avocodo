@@ -1,28 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <link rel='stylesheet' href='/public/stylesheets/style.css' />
-
-  <title> Plenty of Dish </title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-</head>
-<body>
-  <h1>Plenty of Dish: let's chat </h1>
-  {{#each user}}
-  <h2>You connected with {{this.name}}.</h2>
-  {{/each}}
-<input type = "text" id="username" />
-<button type = "submit" id="change_username">Click to save name</button>
-
-<input type = "text" id="message" />
-<button type = "submit" id ="change_message">Send Message</button>
-<div id="status"> </div>
-<div id="feedback"> </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="/public/javascripts/chat.js"></script>
-</body>
-</html> -->
-
 <html>
 <head>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
@@ -33,14 +8,14 @@
 <link rel='stylesheet' href='/stylesheets/chat.css' />
 </head>
 
-<body>
+<body class="text-center">
 
 <div class="container">
-  <h1> Plenty of Dish: let's chat </h1>
+  <h1 class="cover-heading"> Let's taco bout us </h1>
 
-<h3 class=" text-center">
+<h3 class="text-center">
   {{#each user}}
-  <h2>You connected with {{this.name}}.</h2>
+  <h2>You connected to {{this.name}}</h2>
   {{/each}}
 </h3>
 

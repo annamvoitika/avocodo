@@ -82,14 +82,14 @@ const UserController = {
           res.render('user/catches.hbs', { user: user });
          });
       },
-      // Chat: function(req, res){
-      //   User.find({_id: req.params._id}, function(err, user) {
-      //     if (err) {
-      //       throw err;
-      //     }
-      //     res.render('chat.hbs', { user: user});
-      //   });
-      // }
+      Chat: function(req, res){
+        User.find({_id: req.params._id}, function(err, user) {
+          if (err) {
+            throw err;
+          }
+          res.render('chat.hbs', { user: user});
+        });
+      }
 
   }
 
