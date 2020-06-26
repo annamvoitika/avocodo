@@ -13,4 +13,5 @@ router.get('/myprofile', HomeController.CheckAuthenticated, UserController.ViewU
 router.get('/:_id/edit', HomeController.CheckAuthenticated, UserController.Edit);
 router.post('/:_id', HomeController.CheckAuthenticated, UserController.Update);
 
+
 module.exports = router;
