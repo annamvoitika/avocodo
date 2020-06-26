@@ -7,20 +7,23 @@ const logger = require('morgan');
 const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
-const io = require('socket.io')(4000)
+const io = require('socket.io')(3000)
 
 
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
 
+const users={};
+
 const app = express();
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.set('view engine', 'ejs');
-// app.engine('handlebars', exhbs());
-// app.set('view engine', 'hbs');
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -60,6 +63,8 @@ io.on('connection', (socket) => {
 
 
 });
+
+
 
 
 // catch 404 and forward to error handler

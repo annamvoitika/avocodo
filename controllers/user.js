@@ -83,14 +83,15 @@ const UserController = {
          });
       },
       Chat: function(req, res){
-        User.find({_id: req.params._id}, function(err, user) {
+        User.find({_id: req.session.user._id}, function(err, user) {
           if (err) {
             throw err;
           }
-          res.render('chat.hbs', { user: user});
+          res.render('chat.hbs', {user: user});
         });
-      }
+       }
+     }
 
-  }
+
 
 module.exports = UserController;
