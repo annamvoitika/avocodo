@@ -1,5 +1,4 @@
 const User = require('../models/user');
-// const session = require('express-session');
 
 const HomeController = {
   Index: function(req, res) {
@@ -11,7 +10,7 @@ const HomeController = {
   },
 
   Error: function(req, res) {
-    res.render('error', {});
+    res.render('error.hbs', {});
   },
 
   Signup: function(req, res) {
@@ -32,24 +31,29 @@ const HomeController = {
   },
 
   UserSignin: function(req, res) {
-    res.render('home/signin.ejs', {});
+    res.render('home/signin.hbs', {});
   },
 
   Signin: function(req, res) {
     const email = req.body.email;
     const password = req.body.password;
 
-    User.findOne({email: email, password: password}, function(err, user) {
+    User.findOne({email: email}, function(err, user) {
       if(err) {
         return res.redirect('/error');
       }
       if(!user) {
-        return res.redirect('/error');
-      }
-
-      req.session.user = user;
-      return res.status(201).redirect('/')
+        return res.render('home/signin.hbs', {message: 'Email does not exist'});
+        }
+      user.comparePassword(password, function (err, isMatch) {
+        if (isMatch && isMatch == true) {
+          req.session.user = user;
+          return res.redirect('/');
+        } else {
+          return res.render('home/signin.hbs', {message: 'Please use correct password'});
+        }
     })
+  });
   },
 
   Logout: function(req, res) {
@@ -60,6 +64,13 @@ const HomeController = {
   CheckAuthenticated: function(req, res, next) {
     if(!req.session.user) {
       return res.redirect('/error');
+    }
+    return next();
+  },
+
+  CheckLoggedIn: function(req, res, next) {
+    if(req.session.user) {
+      return res.redirect('/');
     }
     return next();
   },
