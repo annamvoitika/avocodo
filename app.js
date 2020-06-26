@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const ejs = require('ejs');
 const hbs = require('express-handlebars');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
