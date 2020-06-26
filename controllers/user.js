@@ -13,21 +13,7 @@ const UserController = {
       if (err) {
         throw err;
       }
-      res.render('user/profile', {
-        id: req.user._id,
-        name: req.user.name,
-        email: req.user.email,
-        age: req.user.age,
-        location: req.user.location,
-        zodiac: req.user.zodiac,
-        breakfast: req.user.breakfast,
-        lunch: req.user.lunch,
-        dinner: req.user.dinner,
-        dessert: req.user.dessert,
-        amdrink: req.user.amdrink,
-        pmdrink: req.user.pmdrink,
-        guilty: req.user.guilty,
-      });
+      res.render('user/profile.hbs', { user: user});
     });
   },
   ViewUserProfile: function(req, res) { 
