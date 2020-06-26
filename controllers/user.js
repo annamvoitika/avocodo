@@ -29,8 +29,6 @@ const UserController = {
   },
   ViewUserProfile: function(req, res) { 
     User.findOne({_id: req.session.user._id}, function(err, user) {
-      console.log('Eddies Profile Error')
-      console.log(user)
       res.render('user/myprofile', {
         id: user._id,
         name: user.name,
