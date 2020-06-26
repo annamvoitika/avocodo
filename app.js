@@ -8,6 +8,7 @@ const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
 
+
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
 
@@ -23,7 +24,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(session({'secret':"hgfdfgh",resave:false,saveUninitialized:true}))
+app.use(session({'secret':"hgfdfgh",resave:true,saveUninitialized:true}))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -9,5 +9,9 @@ router.post('/', HomeController.CheckAuthenticated, UserController.Create);
 router.get('/new', HomeController.CheckAuthenticated, UserController.New);
 router.get('/profile/:_id', HomeController.CheckAuthenticated, UserController.ViewProfile);
 router.get('/catches', HomeController.CheckAuthenticated, UserController.RandomCatch);
+router.get('/myprofile', HomeController.CheckAuthenticated, UserController.ViewUserProfile);
+router.get('/:_id/edit', HomeController.CheckAuthenticated, UserController.Edit);
+router.post('/:_id', HomeController.CheckAuthenticated, UserController.Update);
+
 
 module.exports = router;
