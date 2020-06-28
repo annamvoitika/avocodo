@@ -41,7 +41,7 @@ app.use('/user', userRouter);
 
 //socket.io
 
-var onlineUsers={}
+var onlineUsers=[]
 // io.on('connection', (socket) => {
 //   console.log("New client connected")
 io.on("connection", function(socket) {
@@ -55,6 +55,11 @@ io.on("connection", function(socket) {
 
   socket.on('change_username', (data) => {
     socket.username = data.username;
+    console.log("New client connected")
+    socket.name = data.username;
+    onlineUsers.push(data);
+    console.log(onlineUsers);
+    io.sockets[data.username] = socket.id;
   });
 
   socket.on('new_message', (data) => {
