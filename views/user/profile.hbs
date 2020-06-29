@@ -1,3 +1,4 @@
+
 {{#each user}}
 <li>Name: {{this.name}}</li>
 <li>Age: {{this.age}}</li>
@@ -10,7 +11,9 @@
 <li>In the mornings I drink: {{this.amdrink}}</li>
 <li>PM poison of choice: {{this.pmdrink}}</li>
 <li>Guilty pleasures I don't share: {{this.guilty}}</li>
-<a class="new-match" href="/user/match">Let's chat</a>
+<li> Matches: {{this.matches}} </li>
+<!-- <a class="new-match" href="/user/match">Let's chat</a> -->
+<a class="match" href="/user/match">Let's Match</a>
 <a class="no-match" href="/">Not for me</a>
 <a class="report" href="/user/report">Report user</a>
 

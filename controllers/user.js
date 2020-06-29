@@ -27,7 +27,7 @@ const UserController = {
       res.render('user/profile.hbs', { user: user});
     });
   },
-  ViewUserProfile: function(req, res) { 
+  ViewUserProfile: function(req, res) {
     User.findOne({_id: req.session.user._id}, function(err, user) {
       res.render('user/myprofile', {
         id: user._id,
@@ -43,6 +43,7 @@ const UserController = {
         amdrink: user.amdrink,
         pmdrink: user.pmdrink,
         guilty: user.guilty,
+        matches: user.matches,
       });
     })
   },
@@ -57,17 +58,17 @@ const UserController = {
   Update: function(req, res) {
     User.findOneAndUpdate({
       _id: req.params._id},
-    {$set: {name: req.body.name, 
-      email: req.body.email, 
-      age: req.body.age, 
-      location: req.body.location, 
-      zodiac: req.body.zodiac, 
-      breakfast: req.body.breakfast, 
-      lunch: req.body.lunch, 
-      dinner: req.body.dinner, 
-      dessert: req.body.dessert, 
-      amdrink: req.body.amdrink, 
-      pmdrink: req.body.pmdrink, 
+    {$set: {name: req.body.name,
+      email: req.body.email,
+      age: req.body.age,
+      location: req.body.location,
+      zodiac: req.body.zodiac,
+      breakfast: req.body.breakfast,
+      lunch: req.body.lunch,
+      dinner: req.body.dinner,
+      dessert: req.body.dessert,
+      amdrink: req.body.amdrink,
+      pmdrink: req.body.pmdrink,
       guilty: req.body.guilty}},
     function(err, user) {
       if (err) {
@@ -76,6 +77,25 @@ const UserController = {
       res.status(201).redirect('/user/myprofile');
     });
   },
+
+//save id from profile params??
+  Match: function(req, res){
+    res.render('user/matches.hbs', {});
+    // //find the other users id from params
+    // User.find(
+    //   {"user._id": req.params._id}
+    // )
+    //find my user name from session user
+    //const user_id = req.session.id
+    // User.update(
+    //   {_id: user_id },
+    //send the id of the match to the matches array
+    //   {$push: { matches: req.params._id},
+    //   done
+    // });
+    //
+  },
+
     RandomCatch: function(req, res) {
         User.aggregate([{$sample: {size: 2}}], function(err, user) {
       if (err) { throw err; }

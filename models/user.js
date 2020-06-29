@@ -15,7 +15,8 @@ var UserSchema = new mongoose.Schema({
   dessert: String,
   amdrink: String,
   pmdrink: String,
-  guilty: String
+  guilty: String,
+  matches: [],
 });
 
 UserSchema.pre('save', function (next) {
