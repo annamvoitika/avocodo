@@ -52,15 +52,13 @@ io.sockets.on('connection',function(socket){
 	});
 
   socket.on('new_message',function(data,callback){
-  // console.log(data);
   var message=data.message;
-  if(message[0]=='@')//if thats whisper or private msg
+  if(message[0]=='@')
   {
-    message=message.substr(1);//start of name onwards
+    message=message.substr(1);
     var idx=message.indexOf(' ');
     if(idx!==-1)
     {
-      //check the username is valid
       var name=message.substr(0,idx);
       message=message.substr(idx+1);
       if(name in onlineUsers)
