@@ -7,10 +7,14 @@ const logger = require('morgan');
 const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
+const multer = require('multer');
+const AWS = require('aws-sdk');
+const multerS3 = require('multer-s3')
+
 
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
-
+const imageRouter = require('./routes/image-upload');
 const app = express();
 
 // view engine setup
@@ -30,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // route setup
 app.use('/', homeRouter);
 app.use('/user', userRouter);
+app.use('/', imageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -46,5 +51,6 @@ app.use(function(err, req, res) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
