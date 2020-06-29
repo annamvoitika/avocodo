@@ -26,7 +26,9 @@ const UserController = {
       }
       res.render('user/profile.hbs', { user: user});
     });
+
   },
+
   ViewUserProfile: function(req, res) {
     User.findOne({_id: req.session.user._id}, function(err, user) {
       res.render('user/myprofile', {
@@ -56,8 +58,9 @@ const UserController = {
     });
   },
   Update: function(req, res) {
+
     User.findOneAndUpdate({
-      _id: req.params._id},
+      _id: req.session.user._id},
     {$set: {name: req.body.name,
       email: req.body.email,
       age: req.body.age,
@@ -69,7 +72,9 @@ const UserController = {
       dessert: req.body.dessert,
       amdrink: req.body.amdrink,
       pmdrink: req.body.pmdrink,
-      guilty: req.body.guilty}},
+      guilty: req.body.guilty,
+    }},
+
     function(err, user) {
       if (err) {
         throw err;
@@ -78,22 +83,28 @@ const UserController = {
     });
   },
 
-//save id from profile params??
   Match: function(req, res){
-    res.render('user/matches.hbs', {});
-    // //find the other users id from params
-    // User.find(
-    //   {"user._id": req.params._id}
-    // )
-    //find my user name from session user
-    //const user_id = req.session.id
-    // User.update(
-    //   {_id: user_id },
-    //send the id of the match to the matches array
-    //   {$push: { matches: req.params._id},
-    //   done
-    // });
-    //
+
+    const match = req.params._id;
+    const userId = req.session.user._id;
+
+    User.updateOne({
+      _id: userId
+    }, {
+      $push: {
+        matches: match
+      }
+    }).exec();
+
+  res.render('user/matches.hbs', {
+    name: req.session.user.name,
+    email: req.session.user.email,
+    age: req.session.user.age,
+    breakfast: req.session.user.breakfast,
+    lunch: req.session.user.lunch,
+    // matches: req.session.user.matches,
+  });
+
   },
 
     RandomCatch: function(req, res) {

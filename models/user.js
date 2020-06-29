@@ -16,7 +16,7 @@ var UserSchema = new mongoose.Schema({
   amdrink: String,
   pmdrink: String,
   guilty: String,
-  matches: [],
+  matches: [mongoose.Schema.Types.ObjectId],
 });
 
 UserSchema.pre('save', function (next) {
