@@ -63,6 +63,12 @@ img{ max-width:100%;}
 
 .chat_people{ overflow:hidden; clear:both;}
 
+.users_online {
+  float: right;
+  color: #2a4158;
+  font-size: 14px;
+}
+
 .inbox_chat { height: 550px; overflow-y: scroll;}
 
 .incoming_msg_img {
@@ -96,3 +102,14 @@ img{ max-width:100%;}
 }
 .messaging {
   padding: 10% 25% 25% 25%;}
+
+  .whisper {
+		color: #432371;
+		font-style: italic;
+	}
+
+  .instructions{
+    float:left;
+    color: #22272c;
+    padding-top: 15px;
+  }

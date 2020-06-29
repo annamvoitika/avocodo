@@ -42,45 +42,49 @@ app.use('/user', userRouter);
 //socket.io
 
 var onlineUsers=[]
-// io.on('connection', (socket) => {
-//   console.log("New client connected")
-io.on("connection", function(socket) {
-  socket.on("online", data => {
-    console.log("New client connected")
-    socket.name = data.username;
-    onlineUsers.push(data);
-    sockets[data.username] = socket.id;
-  });
 
+io.sockets.on('connection',function(socket){
+	socket.on('change_username',function(data,callback){
+		console.log("New user");
+			socket.username=data.username;
+			onlineUsers[socket.username]=socket;
+      io.sockets.emit('usernames',Object.keys(onlineUsers));
+	});
 
-  socket.on('change_username', (data) => {
-    socket.username = data.username;
-    console.log("New client connected")
-    socket.name = data.username;
-    onlineUsers.push(data);
-    console.log(onlineUsers);
-    io.sockets[data.username] = socket.id;
-  });
+  socket.on('new_message',function(data,callback){
+  // console.log(data);
+  var message=data.message;
+  if(message[0]=='@')//if thats whisper or private msg
+  {
+    message=message.substr(1);//start of name onwards
+    var idx=message.indexOf(' ');
+    if(idx!==-1)
+    {
+      //check the username is valid
+      var name=message.substr(0,idx);
+      message=message.substr(idx+1);
+      if(name in onlineUsers)
+      {
+        onlineUsers[name].emit('whisper',{message:message,username:socket.username});
+        console.log('whispered');
+      }
+      else
+      {
+        var result = 'Error! Enter a valid user';
+        callback(result);
+      }
+    }
+    else
+    {
+      callback('Error! Please enter a message for your whisper');
+    }
+  }
+  else{
+    io.sockets.emit('new_message',{message:message,username:socket.username});
+  }
 
-  socket.on('new_message', (data) => {
-    io.sockets.emit('new_message',{
-      message: data.message,
-      username: socket.username
-    });
-
-    socket.on("send_personal_message", function(data) {
-  socket.to(sockets[data.user]).emit("personal", data);
 });
-
-    socket.on('typing', (data) => {
-      socket.broadcast.emit('typing', {username:socket.username});
-    });
   });
-
-
-});
-
-
 
 
 // catch 404 and forward to error handler
@@ -98,5 +102,7 @@ app.use(function(err, req, res) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

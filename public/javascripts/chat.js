@@ -6,27 +6,62 @@ $(document).ready(function() {
   var status = $("#status");
   var message = $("#message");
   var change_message = $("#change_message");
+  var $users=$('#users');
+  var $chat=$('#chat');
 
   change_username.click(function(){
     socket.emit('change_username', {username:username.val()})
   })
 
-  change_message.click(function(){
-    socket.emit('new_message', {message:message.val()})
-  })
+  // change_message.click(function(){
+  //   socket.emit('new_message', {message:message.val()})
+  // })
+  //
+  // socket.on('new_message',function(data){
+  //   message.val('');
+  //   feedback.append('<span class="normal"><b>'+data.username+': </b>'+data.message+"</span><Br>");
+  // });
+  //
+  // socket.on('usernames',function(data){
+  //   var str=' ';
+  //   for(var i=0;i<data.length;i++)
+  //   {
+  //     str+=data[i]+'<br/>';
+  //
+  //   }
+  //   $users.html(str);
+  // });
+  //
+  // socket.on('whisper',function(data){
+  //   feedback.append('<span class="whisper"><b>'+ 'Private Message from ' + data.username+':- </b>'+data.message+"</span><Br>");
+  //   message.val('');
+  // })
 
-socket.on('new_message', (data) => {
-  message.val('');
 
-  feedback.append('<p>' + data.username + ":" + ' ' + data.message + '</p>')
-})
+  change_message.click(function(e){
+				e.preventDefault();
+				socket.emit('new_message',{message:message.val()},function(data){
+					feedback.append('<span class="error"><b>'+data+"</span><Br>");
+				});
+				message.val("");
+			});
 
-message.bind('keypress', ()=> {
-  socket.emit('typing')
-})
+			socket.on('new_message',function(data){
+				feedback.append('<span class="normal"><b>'+data.username+': </b>'+data.message+"</span><Br>");
+			});
 
-socket.on('typing', (data) => {
-  status.html('<p><i>' + data.username + " is typing..." + '</i></p>')
-})
+			socket.on('usernames',function(data){
+				var str=' ';
+				for(var i=0;i<data.length;i++)
+				{
+					str+=data[i]+'<br/>';
+				}
+				$users.html(str);
+			});
+
+			socket.on('whisper',function(data){
+				feedback.append('<span class="whisper"><b>'+ "Private message from " + data.username+': </b>'+data.message+"</span><Br>");
+			})
+
 
 })
