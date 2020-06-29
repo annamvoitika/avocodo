@@ -45,7 +45,6 @@ const UserController = {
         amdrink: user.amdrink,
         pmdrink: user.pmdrink,
         guilty: user.guilty,
-        matches: user.matches,
       });
     })
   },
@@ -96,15 +95,12 @@ const UserController = {
       }
     }).exec();
 
-  res.render('user/matches.hbs', {
-    name: req.session.user.name,
-    email: req.session.user.email,
-    age: req.session.user.age,
-    breakfast: req.session.user.breakfast,
-    lunch: req.session.user.lunch,
-    // matches: req.session.user.matches,
-  });
+  },
 
+  ViewMatches: function(req, res) {
+    res.render('user/viewmatches.hbs', {
+      matches: req.session.user.matches,
+    });
   },
 
     RandomCatch: function(req, res) {
