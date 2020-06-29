@@ -13,31 +13,6 @@ $(document).ready(function() {
     socket.emit('change_username', {username:username.val()})
   })
 
-  // change_message.click(function(){
-  //   socket.emit('new_message', {message:message.val()})
-  // })
-  //
-  // socket.on('new_message',function(data){
-  //   message.val('');
-  //   feedback.append('<span class="normal"><b>'+data.username+': </b>'+data.message+"</span><Br>");
-  // });
-  //
-  // socket.on('usernames',function(data){
-  //   var str=' ';
-  //   for(var i=0;i<data.length;i++)
-  //   {
-  //     str+=data[i]+'<br/>';
-  //
-  //   }
-  //   $users.html(str);
-  // });
-  //
-  // socket.on('whisper',function(data){
-  //   feedback.append('<span class="whisper"><b>'+ 'Private Message from ' + data.username+':- </b>'+data.message+"</span><Br>");
-  //   message.val('');
-  // })
-
-
   change_message.click(function(e){
 				e.preventDefault();
 				socket.emit('new_message',{message:message.val()},function(data){
@@ -62,6 +37,4 @@ $(document).ready(function() {
 			socket.on('whisper',function(data){
 				feedback.append('<span class="whisper"><b>'+ "Private message from " + data.username+': </b>'+data.message+"</span><Br>");
 			})
-
-
 })
