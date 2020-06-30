@@ -45,6 +45,7 @@ const UserController = {
         amdrink: user.amdrink,
         pmdrink: user.pmdrink,
         guilty: user.guilty,
+        matches: user.matches,
       });
     })
   },
@@ -93,7 +94,7 @@ const UserController = {
       $push: {
         matches: match
       }
-    }).exec();
+    }).then();
 
     //write match into the matches db
     User.updateOne({
@@ -102,17 +103,19 @@ const UserController = {
       $push: {
         matches: userId
       }
-    }).exec();
+    }).then();
 
     res.status(201).redirect('/user/matches');
   },
 
   ViewMatches: function(req, res) {
-    res.render('user/viewmatches.hbs', {
-      matches: req.session.user.matches,
-      user: req.session.user.name,
+    User.findOne({_id: req.session.user._id}, function(err, user) {
+    res.render('user/viewmatches.ejs', {
+      name: user.name,
+      matches: user.matches,
     });
-  },
+  })
+},
 
   Unmatch: function(req, res){
     const match = req.params._id;
@@ -125,9 +128,8 @@ const UserController = {
       $pull: {
         matches: match
       }
-    }).exec();
-
-    res.render('user/unmatch.hbs', {});
+    }).then();
+      res.render('user/unmatch.hbs', {});
 },
 
   RandomCatch: function(req, res) {
