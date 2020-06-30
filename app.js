@@ -7,24 +7,15 @@ const logger = require('morgan');
 const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
-// const io = require('socket.io')(http)
-const socketIO = require('socket.io');
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io').listen(server);
+
+server.listen(process.env.PORT || 4000);
 
 
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
-
-
-const app = express();
-
-const PORT = process.env.PORT || 4000;
-const INDEX = '/index.html';
-
-const server = express()
-  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
-  .listen(PORT, () => console.log(`Listening on ${PORT}`));
-
-const io = socketIO(server);
 
 
 // view engine setup
