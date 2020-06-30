@@ -31,7 +31,8 @@
     "mongoose": "^5.8.11",
     "morgan": "~1.9.1",
     "nodemon": "^1.19.4",
-    "passport": "^0.4.1"
+    "passport": "^0.4.1",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "cypress": "^3.8.3",
