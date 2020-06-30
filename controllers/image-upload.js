@@ -7,7 +7,7 @@ const ImageUploadController = {
   },
 
   Uploaded: function(req, res) {
-    singleUploadsingleUpload(req, res, function(err) {
+    singleUpload(req, res, function(err) {
       res.render('error.hbs', {});
     });
   }
