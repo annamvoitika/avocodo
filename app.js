@@ -8,12 +8,12 @@ const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 11006;
 const INDEX = '/chat.hbs';
 
 const server = express()
   .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
-  .listen(4000, () => console.log(`Listening on ${PORT}`));
+  .listen(11006, () => console.log(`Listening on ${PORT}`));
 
 
 
