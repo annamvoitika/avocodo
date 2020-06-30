@@ -2,19 +2,7 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
-a {
-  color: #5ca4a9;
-}
-
-.user-short-info {
-  background-color: #f4f1bb;
-}
-
-.user {
-  list-style: none;
-}
-
-h1 {
-  color: #ed6a5a;
-}
+a {color: #5ca4a9;}
+.user-short-info {background-color: #f4f1bb;}
+.user {list-style: none;}
+h1 {color: #ed6a5a;}
