@@ -94,13 +94,11 @@ const UserController = {
         matches: match
       }
     }).exec();
-
+    res.status(201).redirect('/user/matches');
   },
 
   ViewMatches: function(req, res) {
-    res.render('user/viewmatches.hbs', {
-      matches: req.session.user.matches,
-    });
+    res.render('user/viewmatches.hbs', {matches: req.session.user.matches});
   },
 
     RandomCatch: function(req, res) {

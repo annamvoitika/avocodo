@@ -1,7 +1,9 @@
 <p> View matches page </p>
 
-<p> matches: </p>
 {{#each matches}}
-  {{this}}
-  <br>
+
+<a class="match" href="/user/profile/{{this}}">Link</a>
+
+<br>
+
 {{/each}}
