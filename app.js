@@ -7,7 +7,7 @@ const logger = require('morgan');
 const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
-const io = require('socket.io')(4000)
+
 
 
 const homeRouter = require('./routes/home');
@@ -16,6 +16,8 @@ const userRouter = require('./routes/user');
 const users={};
 
 const app = express();
+const server = app.listen(4000);
+const io = require('socket.io')(server)
 
 
 
