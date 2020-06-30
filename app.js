@@ -8,19 +8,23 @@ const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
 // const io = require('socket.io')(http)
+const socketIO = require('socket.io');
 
 
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
 
-const users={};
 
 const app = express();
-var http = require('http').createServer(app);
-const io = require('socket.io')(http)
-var PORT = process.env.PORT || 4000;
 
-var expressWs = require('express-ws')(app);
+const PORT = process.env.PORT || 4000;
+const INDEX = '/index.html';
+
+const server = express()
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+const io = socketIO(server);
 
 
 // view engine setup
