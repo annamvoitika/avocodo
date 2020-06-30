@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
-const socket = io.connect("http://localhost:4000");
-	// const socket = io.connect('plenty-of-dish-stg.herokuapp.com', {secure: true});
+  const socket = io.connect("http://localhost:4000");
 	const username = $("#username");
 	const change_username = $("#change_username");
 	const feedback = $("#feedback");
