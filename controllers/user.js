@@ -83,7 +83,7 @@ const UserController = {
   },
 
   Match: function(req, res){
-
+    //write match into the users db
     const match = req.params._id;
     const userId = req.session.user._id;
 
@@ -94,14 +94,43 @@ const UserController = {
         matches: match
       }
     }).exec();
+
+    //write match into the matches db
+    User.updateOne({
+      _id: match
+    }, {
+      $push: {
+        matches: userId
+      }
+    }).exec();
+
     res.status(201).redirect('/user/matches');
   },
 
   ViewMatches: function(req, res) {
-    res.render('user/viewmatches.hbs', {matches: req.session.user.matches});
+    res.render('user/viewmatches.hbs', {
+      matches: req.session.user.matches,
+      user: req.session.user.name,
+    });
   },
 
-    RandomCatch: function(req, res) {
+  Unmatch: function(req, res){
+    const match = req.params._id;
+    const userId = req.session.user._id;
+
+    //update db to remove match for user
+    User.updateOne({
+      _id: userId
+    }, {
+      $pull: {
+        matches: match
+      }
+    }).exec();
+
+    res.render('user/unmatch.hbs', {});
+},
+
+  RandomCatch: function(req, res) {
         User.aggregate([{$sample: {size: 2}}], function(err, user) {
       if (err) { throw err; }
           res.render('user/catches.hbs', { user: user });

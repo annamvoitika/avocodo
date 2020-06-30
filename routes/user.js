@@ -11,6 +11,7 @@ router.get('/profile/:_id', HomeController.CheckAuthenticated, UserController.Vi
 router.get('/catches', HomeController.CheckAuthenticated, UserController.RandomCatch);
 router.get('/match/:_id', HomeController.CheckAuthenticated, UserController.Match);
 router.get('/matches', HomeController.CheckAuthenticated, UserController.ViewMatches);
+router.get('/unmatch/:_id', HomeController.CheckAuthenticated, UserController.Unmatch);
 router.get('/myprofile', HomeController.CheckAuthenticated, UserController.ViewUserProfile);
 router.get('/:_id/edit', HomeController.CheckAuthenticated, UserController.Edit);
 router.post('/:_id', HomeController.CheckAuthenticated, UserController.Update);
