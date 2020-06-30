@@ -7,16 +7,17 @@ const logger = require('morgan');
 const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
-const app = express();
-const server = require('http').createServer(app);
-const io = require('socket.io').listen(server);
-
-server.listen(process.env.PORT || 4000);
 
 
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
 
+
+const app = express();
+
+const server = require('http').createServer(app);
+const io = require('socket.io').listen(server);
+server.listen(process.env.PORT || 4000);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
