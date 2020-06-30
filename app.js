@@ -16,9 +16,6 @@ const userRouter = require('./routes/user');
 const users={};
 
 const app = express();
-const server = app.listen(4000);
-const io = require('socket.io')(server)
-
 
 
 // view engine setup
@@ -42,6 +39,9 @@ app.use('/user', userRouter);
 
 
 //socket.io
+
+const server = app.listen(4000);
+const io = require('socket.io')(server)
 
 var onlineUsers=[]
 
