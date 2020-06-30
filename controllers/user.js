@@ -104,7 +104,7 @@ const UserController = {
         matches: userId
       }
     }).then();
-
+    res.render('user/unmatch.hbs')
     res.status(201).redirect('/user/matches');
   },
 
@@ -129,7 +129,8 @@ const UserController = {
         matches: match
       }
     }).then();
-      res.render('user/unmatch.hbs', {});
+    res.render('user/unmatch.hbs', {});
+    ;
 },
 
   RandomCatch: function(req, res) {

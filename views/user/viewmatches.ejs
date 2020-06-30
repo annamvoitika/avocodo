@@ -1,9 +1,52 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Plenty of Dish</title>
 
-<% matches.forEach(function(match) { %>
-<br>
-<a class="match" href="/user/profile/<%= match %>">See em</a>
-<br>
-<a class="match" href="/user/unmatch/<%= match %>">Ditch em</a>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel='stylesheet' href='/stylesheets/viewmatches.css' />
+</head>
+<header class="masthead mb-auto">
+  <div class="inner">
+    <nav class="nav nav-masthead justify-content-center">
+      <a class="nav-link active" href="/user/myprofile">My Profile</a>
+      <a class="nav-link" href="/">Homepage</a>
+      <a class="nav-link" href="/user/matches">Your chosen bowlmates</a>
+      <a class="nav-link" href="/user/catches">More catches</a>
+      <a class="nav-link" href="/logout">Log out</a>
+    </nav>
+  </div>
+</header>
+
+<center>
 <br>
-<% }) %>
+<br>
+<br>
+<h1> <%= name %>'s Tasty Matches </h1>
+<br>
+<img src="https://tenor.com/view/bubba-love-cute-cats-in-love-gif-14665589.gif" class="cat-image" alt="cats in love">
+<br>
+ <% for (var i = 0; i < matches.length; i++) { %>
+     <br>
+     🔥 Mystery match : <%= i+1 %>
+     <br>
+     <a class="match" href="/user/profile/<%= matches[i] %>">See em</a>
+     <br>
+     <a class="match" href="/user/unmatch/<%= matches[i] %>">Ditch em</a>
+<br>
+<% } %>
+<center>
+  <br>
+  <br>
+  <br>
+  <br>
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      Copyright &copy; Plenty of Dish 2020
+    </div>
+  </footer>
