@@ -18,7 +18,7 @@ const HomeController = {
     user.password = password;
     user.save(function (err, savedUser) {
       if (err) {
-        res.status(201).redirect('/error')
+        res.status(201).redirect('/signin')
       }
       return res.status(201).redirect('/signin')
     })
@@ -32,7 +32,7 @@ const HomeController = {
 
     User.findOne({ email: email }, function (err, user) {
       if (err) {
-        return res.redirect('/error');
+        return res.redirect('/signin');
       }
       if (!user) {
         return res.render('home/signin.hbs', { message: 'Email does not exist' });
