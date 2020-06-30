@@ -1,17 +1,67 @@
-{{#each user}}
-<li>Name: {{this.name}}</li>
-<li>Age: {{this.age}}</li>
-<li>Location: {{this.location}}</li>
-<li>Zodiac Sign: {{this.zodiac}}</li>
-<li>Favourite Breakfast Dish: {{this.breakfast}}</li>
-<li>What Lunch Dreams are made of: {{this.lunch}}</li>
-<li>Winner Winner ... Dinner: {{this.dinner}}</li>
-<li>Save space for dessert: {{this.dessert}}</li>
-<li>In the mornings I drink: {{this.amdrink}}</li>
-<li>PM poison of choice: {{this.pmdrink}}</li>
-<li>Guilty pleasures I don't share: {{this.guilty}}</li>
-<a class="new-match" href="/user/chat/{{this.id}}">Let's chat</a>
-<a class="no-match" href="/">Not for me</a>
-<a class="report" href="/user/report">Report user</a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title> Plenty of Dish</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
-{{/each}}
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link rel='stylesheet' href='/stylesheets/homepage.css' />
+</head>
+
+<body class="text-center">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link" href="/user/myprofile">Profile</a>
+          <a class="nav-link" href="/">Homepage</a>
+          <a class="nav-link" href="/user/matches">Your chosen bowlmates</a>
+          <a class="nav-link active" href="/user/catches">More catches</a>
+          <a class="nav-link" href="/user/chat">Plenty of chat</a>
+          <a class="nav-link" href="/logout">Log Out</a>
+        </nav>
+      </div>
+    </header>
+    <main role="main" class="inner cover">
+      {{#each user}}
+      <li>Name: {{this.name}}</li>
+      <li>Age: {{this.age}}</li>
+      <li>Location: {{this.location}}</li>
+      <li>Zodiac Sign: {{this.zodiac}}</li>
+      <li>Favourite Breakfast Dish: {{this.breakfast}}</li>
+      <li>What Lunch Dreams are made of: {{this.lunch}}</li>
+      <li>Winner Winner ... Dinner: {{this.dinner}}</li>
+      <li>Save space for dessert: {{this.dessert}}</li>
+      <li>In the mornings I drink: {{this.amdrink}}</li>
+      <li>PM poison of choice: {{this.pmdrink}}</li>
+      <li>Guilty pleasures I don't share: {{this.guilty}}</li>
+      <a class="new-match" href="/user/chat/{{this.id}}">Let's chat</a>
+      <a class="no-match" href="/">Not for me</a>
+      <a class="report" href="/user/report">Report user</a>
+      {{/each}}
+    </main>
+    <footer class="mastfoot mt-auto">
+      <div class="inner">
+        Copyright &copy; Plenty of Dish 2020
+      </div>
+    </footer>
+  </div>
+</body>
