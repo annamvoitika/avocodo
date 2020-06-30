@@ -7,14 +7,7 @@ const logger = require('morgan');
 const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
-
-const PORT = process.env.PORT || 11006;
-const INDEX = '/chat.hbs';
-
-const server = express()
-  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
-  .listen(11006, () => console.log(`Listening on ${PORT}`));
-
+const io = require('socket.io')(11006)
 
 
 const homeRouter = require('./routes/home');
@@ -47,9 +40,6 @@ app.use('/user', userRouter);
 
 //socket.io
 
-// const server = app.listen(4000);
-// const io = require('socket.io')(server)
-const io = require('socket.io')(server);
 
 var onlineUsers=[]
 
