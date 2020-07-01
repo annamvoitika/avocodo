@@ -83,3 +83,10 @@ h1 {
   height: auto;
   border-radius: 20px;
 }
+
+.potato-image {
+  width: 15%;
+  max-width: 15%;
+  height: auto;
+  border-radius: 20px;
+}

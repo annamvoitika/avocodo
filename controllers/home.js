@@ -48,7 +48,9 @@ const HomeController = {
       user.comparePassword(password, function (err, isMatch) {
         if (isMatch && isMatch == true) {
           req.session.user = user;
-          return res.redirect('/');
+            if (user.reported === "true") {
+              res.render('home/signin.hbs', {message: 'Your profile has been reported. You are no longer able to use this site.'});
+            } else {return res.redirect('/')};
         } else {
           return res.render('home/signin.hbs', {message: 'Please use correct password'});
         }

@@ -88,6 +88,10 @@ const UserController = {
     const match = req.params._id;
     const userId = req.session.user._id;
 
+    if (match === userId) {
+      res.status(201).redirect('/user/self-match');
+    };
+
     User.updateOne({
       _id: userId
     }, {
@@ -128,7 +132,6 @@ const UserController = {
 },
 
 Confirm: function(req, res){
-  console.log("got to confirm");
   //delete match from existing user suggested matches
   const match = req.params._id;
   const userId = req.session.user._id;
@@ -149,7 +152,6 @@ Confirm: function(req, res){
 },
 
 Confirm2: function(req, res){
-  console.log("got to confirm2");
   //delete match from existing matches suggested matches
   const match = req.params._id;
   const userId = req.session.user._id;
@@ -170,7 +172,6 @@ Confirm2: function(req, res){
 },
 
 ConfirmMatch: function(req, res){
-  console.log("got to confirm match");
   //add matches to both matches array
   const match = req.params._id;
   const userId = req.session.user._id;
@@ -234,6 +235,26 @@ Unmatch2: function(req, res) {
   }).then();
 
   res.status(201).redirect('/user/suggested-matches');
+},
+
+SelfMatch: function(req, res) {
+  res.render('user/selfmatch.hbs', {name: req.session.user.name});
+},
+
+Report:function(req, res) {
+  const reporteduser = req.params._id;
+  const value = "true";
+
+  User.findOneAndUpdate({
+    _id: reporteduser},
+  {$set: {reported: value,
+  }},
+  function(err, user) {
+    if (err) {
+      throw err;
+    }
+  res.render('user/reported.hbs', {});
+});
 },
 
   RandomCatch: function(req, res) {

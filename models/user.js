@@ -16,6 +16,7 @@ var UserSchema = new mongoose.Schema({
   amdrink: String,
   pmdrink: String,
   guilty: String,
+  reported: String,
   matches: [mongoose.Schema.Types.ObjectId],
   usersuggestedmatches: [mongoose.Schema.Types.ObjectId],
   matchsuggestedmatches: [mongoose.Schema.Types.ObjectId],
