@@ -7,10 +7,11 @@ const logger = require('morgan');
 const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
-const multer = require('multer');
 const AWS = require('aws-sdk');
-const multerS3 = require('multer-s3')
 const fileUpload = require('express-fileupload')
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
 
 const homeRouter = require('./routes/home');
@@ -31,13 +32,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session({'secret':"hgfdfgh",resave:false,saveUninitialized:true}))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(fileUpload({
-  limits: { fileSize: 50 * 1024 * 1024 },
-}));
+app.use(fileUpload());
 app.use(fileUpload({
     useTempFiles : true,
     tempFileDir : '/tmp/'
 }));
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(morgan('dev'));
 
 // route setup
 app.use('/', homeRouter);
