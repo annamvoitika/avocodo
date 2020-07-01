@@ -1,0 +1,29 @@
+<script language=javascript>
+<!--
+// function OnButton()
+// {
+//   console.log('CJs here')
+//     document.Form.action = "/image/upload"    // First target
+//     document.Form.target = "iframe1";    // Open in a iframe
+//     document.Form.submit();        // Submit the page
+//
+//     document.Form.action = "https://plenty-of-dish-images.s3.eu-west-2.amazonaws.com"    // Second target
+//     document.Form.target = "iframe1";    // Open in a iframe
+//     document.Form.submit();        // Submit the page
+//     return true;
+// }
+-->
+</script>
+
+<html>
+<h1>Choose your images to upload</h1>
+<head>
+<!-- <img src="https://plenty-of-dish-images.s3.eu-west-2.amazonaws.com/test12.png"/> -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form ref='uploadForm'  id='uploadForm' action="/image/upload" method="post" encType="multipart/form-data" name="Form" >
+<input name="file" type="file" />
+<input name="submit" value="Upload" type="submit" />
+</form>
+</body>

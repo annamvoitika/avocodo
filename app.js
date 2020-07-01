@@ -10,6 +10,7 @@ const bcrypt = require('bcrypt');
 const multer = require('multer');
 const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3')
+const fileUpload = require('express-fileupload')
 
 
 const homeRouter = require('./routes/home');
@@ -30,11 +31,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session({'secret':"hgfdfgh",resave:false,saveUninitialized:true}))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload({
+  limits: { fileSize: 50 * 1024 * 1024 },
+}));
+app.use(fileUpload({
+    useTempFiles : true,
+    tempFileDir : '/tmp/'
+}));
 
 // route setup
 app.use('/', homeRouter);
 app.use('/user', userRouter);
-app.use('/', imageRouter);
+app.use('/image', imageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -24,6 +24,7 @@ const upload = multer({
     s3: s3,
     bucket: 'plenty-of-dish-images',
     acl: 'public-read',
+    contentType: multerS3.AUTO_CONTENT_TYPE,
     metadata: function (req, file, cb) {
       cb(null, {fieldName: file.fieldname});
     },
