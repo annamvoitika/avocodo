@@ -15,7 +15,8 @@ const UserSchema = new mongoose.Schema({
   dessert: String,
   amdrink: String,
   pmdrink: String,
-  guilty: String
+  guilty: String,
+  avatar: String
 });
 
 UserSchema.pre('save', function (next) {

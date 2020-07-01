@@ -1,4 +1,11 @@
 const User = require('../models/user');
+const ImageUpload = require('../models/upload');
+const express = require('express');
+const router = express.Router();
+const imageData = ImageUpload.find({});
+
+router.use(express.static(__dirname + './public/'))
+
 
 const UserController = {
   Index: function (req, res) {
@@ -34,8 +41,42 @@ const UserController = {
         amdrink: user.amdrink,
         pmdrink: user.pmdrink,
         guilty: user.guilty,
+        avatar: user.avatar
       });
     })
+  },
+  UploadImage: function (req, res) {
+    let imageFile = req.file.filename;
+    let success = req.file.filename + " uploaded successfully";
+    let imageDetails = new ImageUpload({
+      UploadImage: imageFile
+    });
+    User.findOneAndUpdate({ _id: req.params._id }, {
+      $set: { avatar: req.body.file }
+    });
+    imageDetails.save(function (err, doc) {
+      if (err) {
+        throw err;
+      }
+      imageData.exec(function (err, data) {
+        if (err) {
+          throw err;
+        }
+        res.render('user/upload', {
+          title: 'Upload File', records: data, success: success
+        })
+      })
+    })
+  },
+  Upload: function (req, res, next) {
+    imageData.exec(function (err, data) {
+      if (err) {
+        throw err;
+      }
+      res.render('user/upload', {
+        title: 'Upload File', records: data, success: ''
+      });
+    });
   },
   Edit: function (req, res) {
     User.find({ _id: req.params._id }, function (err, user) {
@@ -46,25 +87,23 @@ const UserController = {
     });
   },
   Update: function (req, res) {
-    User.findOneAndUpdate({
-      _id: req.params._id
+    User.findOneAndUpdate({ _id: req.params._id }, {
+      $set: {
+        name: req.body.name,
+        email: req.body.email,
+        age: req.body.age,
+        location: req.body.location,
+        zodiac: req.body.zodiac,
+        breakfast: req.body.breakfast,
+        lunch: req.body.lunch,
+        dinner: req.body.dinner,
+        dessert: req.body.dessert,
+        amdrink: req.body.amdrink,
+        pmdrink: req.body.pmdrink,
+        guilty: req.body.guilty,
+        avatar: req.body.file
+      }
     },
-      {
-        $set: {
-          name: req.body.name,
-          email: req.body.email,
-          age: req.body.age,
-          location: req.body.location,
-          zodiac: req.body.zodiac,
-          breakfast: req.body.breakfast,
-          lunch: req.body.lunch,
-          dinner: req.body.dinner,
-          dessert: req.body.dessert,
-          amdrink: req.body.amdrink,
-          pmdrink: req.body.pmdrink,
-          guilty: req.body.guilty
-        }
-      },
       function (err, user) {
         if (err) {
           throw err;

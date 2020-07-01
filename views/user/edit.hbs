@@ -41,7 +41,11 @@
     </header>
     <div class="edit-form">
       {{#each user}}
-      <form id="edit-user-form" action="/user/{{this._id}}" method="post">
+      <form id="edit-user-form" action="/user/{{this._id}}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <p class="edit-label"><label for="name">Upload Your Profile Picture: </label></p>
+          <input id="edit-profile-picture" type="file" name="file" rows="4" cols="50">
+        </div>
         <div class="form-group">
           <p class="edit-label"><label for="name">Edit Your Name: </label></p>
           <input id="edit-name" type="text" name="name" value="{{this.name}}" rows="4" cols="50">
