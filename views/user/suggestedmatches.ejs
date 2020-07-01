@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <link rel='stylesheet' href='/stylesheets/viewmatches.css' />
+  <link rel='stylesheet' href='/stylesheets/matching.css' />
 </head>
 <header class="masthead mb-auto">
   <div class="inner">
@@ -29,15 +29,15 @@
 <br>
 <h1> <%= name %>'s pending matches </h1>
 <br>
-<img src="https://tenor.com/view/bubba-love-cute-cats-in-love-gif-14665589.gif" class="cat-image" alt="cats in love">
+<img src="https://media.giphy.com/media/l2RaVc3X521tIh4gU/giphy.gif" class="cheese-image" alt="melted cheese sandwich">
 <br>
 <br>
 <h2> Matches you requested: </h2>
  <% for (var i = 0; i < usersuggestedmatches.length; i++) { %>
      <br>
-     🔥 Suggested match : <%= i+1 %>
+     ❤️ Suggested match : <%= i+1 %>
      <br>
-     <a class="match" href="/user/profile/<%= usersuggestedmatches[i] %>">See em</a>
+     <a class="match" href="/user/profile/<%= usersuggestedmatches[i] %>">See their profile </a>
      <br>
      <a class="match" href="/user/unmatch/<%= usersuggestedmatches[i] %>">Ditch em</a>
 
@@ -45,16 +45,17 @@
 <% } %>
 <center>
 <br>
-  <h2> Matches they proposed: </h2>
+  <h2> Matches interested in you: </h2>
+  <p> They could be your biggest flan. </p>
   <% for (var i = 0; i < matchsuggestedmatches.length; i++) { %>
       <br>
-      🔥 Proposed match : <%= i+1 %>
+      ❓Proposed match : <%= i+1 %>
       <br>
-      <a class="match" href="/user/profile/<%= matchsuggestedmatches[i] %>">See em</a>
+      <a class="match" href="/user/profile/<%= matchsuggestedmatches[i] %>">See their profile</a>
       <br>
       <a class="match" href="/user/unmatch/<%= matchsuggestedmatches[i] %>">Ditch em</a>
       <br>
-      <a class="match" href="/user/confirm-match/<%= matchsuggestedmatches[i] %>">Approve this match </a>
+      <a class="match" href="/user/confirm/<%= matchsuggestedmatches[i] %>">Approve this match </a>
  <br>
  <% } %>
  <center>

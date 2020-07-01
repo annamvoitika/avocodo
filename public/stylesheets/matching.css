@@ -62,3 +62,24 @@ h1 {
   height: auto;
   border-radius: 1px;
 }
+
+.dump-image {
+  width: 50%;
+  max-width: 50%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.parrot-image {
+  width: 30%;
+  max-width: 30%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.cheese-image {
+  width: 15%;
+  max-width: 15%;
+  height: auto;
+  border-radius: 20px;
+}

@@ -127,11 +127,55 @@ const UserController = {
   })
 },
 
-ConfirmMatch: function(req, res){
-  //write match into the users db
+Confirm: function(req, res){
+  console.log("got to confirm");
+  //delete match from existing user suggested matches
   const match = req.params._id;
   const userId = req.session.user._id;
 
+  User.updateMany({
+    _id: userId
+  }, {
+    //this should remove match from all elements of my user arrays
+    $pull: {
+      matches: match,
+      usersuggestedmatches: match,
+      matchsuggestedmatches: match,
+    }
+  }).then();
+
+  res.render('user/confirmmatch.hbs', {match: req.params._id});
+  //redirects to second user writing
+},
+
+Confirm2: function(req, res){
+  console.log("got to confirm2");
+  //delete match from existing matches suggested matches
+  const match = req.params._id;
+  const userId = req.session.user._id;
+
+  User.updateMany({
+    _id: match
+  }, {
+    //this should remove match from all elements of my user arrays
+    $pull: {
+      matches: userId,
+      usersuggestedmatches: userId,
+      matchsuggestedmatches: userId,
+    }
+  }).then();
+
+  res.render('user/confirmmatch2.hbs', {match: req.params._id})
+  //this then redirects to confirm match so we can write to the db matches
+},
+
+ConfirmMatch: function(req, res){
+  console.log("got to confirm match");
+  //add matches to both matches array
+  const match = req.params._id;
+  const userId = req.session.user._id;
+
+  //write array into user db matches array
   User.updateOne({
     _id: userId
   }, {
@@ -140,7 +184,7 @@ ConfirmMatch: function(req, res){
     }
   }).then();
 
-  //write match into the matches db
+  //write match into the matches' array db
   User.updateOne({
     _id: match
   }, {
@@ -148,6 +192,8 @@ ConfirmMatch: function(req, res){
       matches: userId
     }
   }).then();
+
+  //remove match from suggested matches db and matches db
 
   res.status(201).redirect('/user/matches');
 },
@@ -157,17 +203,37 @@ Unmatch: function(req, res){
   const userId = req.session.user._id;
 
   //update db to remove match for user
-  User.updateOne({
+  User.updateMany({
     _id: userId
   }, {
+    //this should remove match from all elements of my user arrays
     $pull: {
       matches: match,
       usersuggestedmatches: match,
       matchsuggestedmatches: match,
     }
   }).then();
-  res.render('user/unmatch.hbs', {});
-  ;
+  //unmatch page then redirects to unmatch 2 to remove info from matches db
+  res.render('user/unmatch.hbs', {match: req.params._id});
+},
+
+Unmatch2: function(req, res) {
+  const match = req.params._id;
+  const userId = req.session.user._id;
+
+  //update db to remove match for user
+  User.updateMany({
+    _id: match
+  }, {
+    //this should remove match from all elements of my user arrays
+    $pull: {
+      matches: userId,
+      usersuggestedmatches: userId,
+      matchsuggestedmatches: userId,
+    }
+  }).then();
+
+  res.status(201).redirect('/user/suggested-matches');
 },
 
   RandomCatch: function(req, res) {
