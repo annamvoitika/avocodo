@@ -92,7 +92,7 @@ const UserController = {
       _id: userId
     }, {
       $push: {
-        matches: match
+        usersuggestedmatches: match
       }
     }).then();
 
@@ -101,11 +101,21 @@ const UserController = {
       _id: match
     }, {
       $push: {
-        matches: userId
+        matchsuggestedmatches: userId
       }
     }).then();
-    res.render('user/unmatch.hbs')
-    res.status(201).redirect('/user/matches');
+
+    res.status(201).redirect('/user/suggested-matches');
+  },
+
+  ViewSuggestedMatches: function(req, res) {
+    User.findOne({_id: req.session.user._id}, function(err, user) {
+    res.render('user/suggestedmatches.ejs', {
+      name: user.name,
+      usersuggestedmatches: user.usersuggestedmatches,
+      matchsuggestedmatches: user.matchsuggestedmatches,
+    });
+  })
   },
 
   ViewMatches: function(req, res) {
@@ -117,20 +127,47 @@ const UserController = {
   })
 },
 
-  Unmatch: function(req, res){
-    const match = req.params._id;
-    const userId = req.session.user._id;
+ConfirmMatch: function(req, res){
+  //write match into the users db
+  const match = req.params._id;
+  const userId = req.session.user._id;
 
-    //update db to remove match for user
-    User.updateOne({
-      _id: userId
-    }, {
-      $pull: {
-        matches: match
-      }
-    }).then();
-    res.render('user/unmatch.hbs', {});
-    ;
+  User.updateOne({
+    _id: userId
+  }, {
+    $push: {
+      matches: match
+    }
+  }).then();
+
+  //write match into the matches db
+  User.updateOne({
+    _id: match
+  }, {
+    $push: {
+      matches: userId
+    }
+  }).then();
+
+  res.status(201).redirect('/user/matches');
+},
+
+Unmatch: function(req, res){
+  const match = req.params._id;
+  const userId = req.session.user._id;
+
+  //update db to remove match for user
+  User.updateOne({
+    _id: userId
+  }, {
+    $pull: {
+      matches: match,
+      usersuggestedmatches: match,
+      matchsuggestedmatches: match,
+    }
+  }).then();
+  res.render('user/unmatch.hbs', {});
+  ;
 },
 
   RandomCatch: function(req, res) {

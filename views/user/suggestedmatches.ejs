@@ -16,7 +16,6 @@
     <nav class="nav nav-masthead justify-content-center">
       <a class="nav-link active" href="/user/myprofile">My Profile</a>
       <a class="nav-link" href="/">Homepage</a>
-      <a class="nav-link" href="/user/suggested-matches">Suggested matches</a>
       <a class="nav-link" href="/user/matches">Your chosen bowlmates</a>
       <a class="nav-link" href="/user/catches">More catches</a>
       <a class="nav-link" href="/logout">Log out</a>
@@ -28,20 +27,38 @@
 <br>
 <br>
 <br>
-<h1> <%= name %>'s Tasty Matches </h1>
+<h1> <%= name %>'s pending matches </h1>
 <br>
 <img src="https://tenor.com/view/bubba-love-cute-cats-in-love-gif-14665589.gif" class="cat-image" alt="cats in love">
 <br>
- <% for (var i = 0; i < matches.length; i++) { %>
+<br>
+<h2> Matches you requested: </h2>
+ <% for (var i = 0; i < usersuggestedmatches.length; i++) { %>
      <br>
-     🔥 Mystery match : <%= i+1 %>
+     🔥 Suggested match : <%= i+1 %>
      <br>
-     <a class="match" href="/user/profile/<%= matches[i] %>">See em</a>
+     <a class="match" href="/user/profile/<%= usersuggestedmatches[i] %>">See em</a>
      <br>
-     <a class="match" href="/user/unmatch/<%= matches[i] %>">Ditch em</a>
+     <a class="match" href="/user/unmatch/<%= usersuggestedmatches[i] %>">Ditch em</a>
+
 <br>
 <% } %>
 <center>
+<br>
+  <h2> Matches they proposed: </h2>
+  <% for (var i = 0; i < matchsuggestedmatches.length; i++) { %>
+      <br>
+      🔥 Proposed match : <%= i+1 %>
+      <br>
+      <a class="match" href="/user/profile/<%= matchsuggestedmatches[i] %>">See em</a>
+      <br>
+      <a class="match" href="/user/unmatch/<%= matchsuggestedmatches[i] %>">Ditch em</a>
+      <br>
+      <a class="match" href="/user/confirm-match/<%= matchsuggestedmatches[i] %>">Approve this match </a>
+ <br>
+ <% } %>
+ <center>
+
   <br>
   <br>
   <br>

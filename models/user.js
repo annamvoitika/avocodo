@@ -17,6 +17,8 @@ var UserSchema = new mongoose.Schema({
   pmdrink: String,
   guilty: String,
   matches: [mongoose.Schema.Types.ObjectId],
+  usersuggestedmatches: [mongoose.Schema.Types.ObjectId],
+  matchsuggestedmatches: [mongoose.Schema.Types.ObjectId],
 });
 
 UserSchema.pre('save', function (next) {

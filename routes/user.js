@@ -10,6 +10,8 @@ router.get('/new', HomeController.CheckAuthenticated, UserController.New);
 router.get('/profile/:_id', HomeController.CheckAuthenticated, UserController.ViewProfile);
 router.get('/catches', HomeController.CheckAuthenticated, UserController.RandomCatch);
 router.get('/match/:_id', HomeController.CheckAuthenticated, UserController.Match);
+router.get('/suggested-matches', HomeController.CheckAuthenticated, UserController.ViewSuggestedMatches);
+router.get('/confirm-match/:_id', HomeController.CheckAuthenticated, UserController.ConfirmMatch);
 router.get('/matches', HomeController.CheckAuthenticated, UserController.ViewMatches);
 router.get('/unmatch/:_id', HomeController.CheckAuthenticated, UserController.Unmatch);
 router.get('/myprofile', HomeController.CheckAuthenticated, UserController.ViewUserProfile);
