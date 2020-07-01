@@ -1,5 +1,7 @@
 const User = require('../models/user');
 const nodemailer = require('nodemailer');
+const hbs = require('nodemailer-express-handlebars');
+require('dotenv').config();
 
 const HomeController = {
   Index: function(req, res) {
@@ -26,12 +28,24 @@ const HomeController = {
     let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        // user: process.env.EMAIL,
-        // pass: process.env.PASSWORD
-        user: 'avocodoteam@gmail.com',
-        pass: 'Makers123'
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD
       }
     });
+
+    const handlebarOptions = {
+    viewEngine: {
+      extName: '.hbs',
+      partialsDir: './views/',
+      layoutsDir: './views/',
+      defaultLayout: 'email.hbs',
+    },
+    viewPath: './views/',
+    extName: '.hbs',
+  };
+
+  transporter.use('compile', hbs(handlebarOptions));
+
     let mailOptions = {
       from: 'avocodoteam@gmail.com',
       to: user.email,
@@ -42,12 +56,7 @@ const HomeController = {
       Then, feel free to explore potential catches, connect with your chosen foodies, and chat to the Plenty of Dish community in our chat section. \
       Most importantly, be respectful and have fun!  \
       We ap-peach-iate you',
-      html: '<p>Hi there!</p>\
-      <p>You are one step closer to finding your perfect pear. That is kind of a big dill!</p> \
-      <p>Once you log in, please head to the "Profile" section, and edit your information.</p> \
-      <p>Then, feel free to explore potential catches, connect with your chosen foodies, and chat to the Plenty of Dish community in our chat section.</p> \
-      <p>Most importantly, be respectful and have fun!</p>  \
-      <p>We ap-peach-iate you</p>'
+      template: 'email'
     };
 
     transporter.sendMail(mailOptions, function(err, data){

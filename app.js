@@ -8,6 +8,7 @@ const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
+
 require('dotenv').config();
 
 const homeRouter = require('./routes/home');
