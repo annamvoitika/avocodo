@@ -10,32 +10,6 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-let transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    // user: process.env.EMAIL,
-    // pass: process.env.PASSWORD
-    user: 'avocodoteam@gmail.com',
-    pass: 'Makers123'
-  }
-});
-
-let mailOptions = {
-  from: 'avocodoteam@gmail.com',
-  to: 'anna.voitik@gmail.com',
-  subject: 'Welcome to Plenty of Dish!',
-  text: 'Find your perfect pear'
-};
-
-transporter.sendMail(mailOptions, function(err, data){
-  if(err) {
-    console.log('Error', err);
-  } else {
-    console.log('Email sent');
-  }
-});
-
-
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
 

@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const nodemailer = require('nodemailer');
 
 const HomeController = {
   Index: function(req, res) {
@@ -22,6 +23,40 @@ const HomeController = {
     user.name = name;
     user.email = email;
     user.password = password;
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        // user: process.env.EMAIL,
+        // pass: process.env.PASSWORD
+        user: 'avocodoteam@gmail.com',
+        pass: 'Makers123'
+      }
+    });
+    let mailOptions = {
+      from: 'avocodoteam@gmail.com',
+      to: user.email,
+      subject: 'Welcome to Plenty of Dish, ' + user.name,
+      text: 'Hi there!\
+      You are one step closer to finding your perfect pear. That is kind of a big dill! \
+      Once you log in, please head to the "Profile" section, and edit your information. \
+      Then, feel free to explore potential catches, connect with your chosen foodies, and chat to the Plenty of Dish community in our chat section. \
+      Most importantly, be respectful and have fun!  \
+      We ap-peach-iate you',
+      html: '<p>Hi there!</p>\
+      <p>You are one step closer to finding your perfect pear. That is kind of a big dill!</p> \
+      <p>Once you log in, please head to the "Profile" section, and edit your information.</p> \
+      <p>Then, feel free to explore potential catches, connect with your chosen foodies, and chat to the Plenty of Dish community in our chat section.</p> \
+      <p>Most importantly, be respectful and have fun!</p>  \
+      <p>We ap-peach-iate you</p>'
+    };
+
+    transporter.sendMail(mailOptions, function(err, data){
+      if(err) {
+        console.log('Error', err);
+      } else {
+        console.log('Email sent');
+      }
+    });
     user.save(function(err, savedUser) {
       if(err) {
         res.status(201).redirect('/error')
