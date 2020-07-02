@@ -37,7 +37,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload({
     useTempFiles : true,
-    tempFileDir : '/tmp/'
+    tempFileDir : 'public/images/ProfilePics',
+    safeFileNames: true,
+    preserveExtension: true
 }));
 app.use(cors());
 app.use(bodyParser.json());

@@ -40,7 +40,13 @@
       </div>
     </header>
     <div class="edit-form">
+      <br>
       {{#each user}}
+      <form ref='uploadForm' id='uploadForm' action='/image/upload' method='post' encType="multipart/form-data">
+        <p class="edit-label"><label for="name">Upload your profile picture: </label></p>
+        <input type="file" name="sampleFile" />
+        <input type='submit' value='Upload!' />
+      </form>
       <form id="edit-user-form" action="/user/{{this._id}}" method="post">
         <div class="form-group">
           <p class="edit-label"><label for="name">Edit Your Name: </label></p>

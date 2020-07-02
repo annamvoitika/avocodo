@@ -34,6 +34,7 @@ const UserController = {
         amdrink: user.amdrink,
         pmdrink: user.pmdrink,
         guilty: user.guilty,
+        avatar: user.avatar
       });
     })
   },

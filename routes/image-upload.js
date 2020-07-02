@@ -7,6 +7,6 @@ const HomeController = require('../controllers/home');
 const ImageUploadController = require('../controllers/image-upload');
 
 router.get('/upload', HomeController.CheckAuthenticated, ImageUploadController.Upload);
-router.post('/upload', ImageUploadController.Uploaded);
+router.post('/upload', HomeController.CheckAuthenticated, ImageUploadController.Uploaded);
 
 module.exports = router;
