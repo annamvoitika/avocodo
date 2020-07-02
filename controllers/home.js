@@ -80,7 +80,7 @@ const HomeController = {
         return res.redirect('/signin');
       }
       if (!user) {
-        return res.render('home/signin.hbs', { message: 'Email does not exist' });
+        return res.render('home/signin.hbs', { message: 'Incorrect credentials' });
       }
       user.comparePassword(password, function (err, isMatch) {
         if (isMatch && isMatch == true) {
@@ -89,7 +89,7 @@ const HomeController = {
               res.render('home/signin.hbs', {message: 'Your profile has been reported. You are no longer able to use this site.'});
             } else {return res.redirect('/')};
         } else {
-          return res.render('home/signin.hbs', { message: 'Please use correct password' });
+          return res.render('home/signin.hbs', { message: 'Incorrect credentials' });
         }
       })
     });
