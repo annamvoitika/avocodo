@@ -272,6 +272,5 @@ Report:function(req, res) {
       }
 
   }
-}
 
 module.exports = UserController;
