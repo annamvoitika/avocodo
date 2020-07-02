@@ -1,22 +1,19 @@
+html,
 body {
   height: 100%;
-  background-image: linear-gradient(to left, #636FA4, #E8CBC0);
+  /* background-color: #dbcdf0; */
+  background-image: linear-gradient(to right, #E8CBC0 , #636FA4);
+}
+body {
+  display: -ms-flexbox;
+  display: flex;
   color: white;
 }
-
-h1 {
-  font: 45px "Lato", Helvetica, sans-serif;
-  text-shadow: 1px 1px 6px #6d6875;
+.cover-container {
+  max-width: 60em;
 }
-
-.masthead {
-  margin-bottom: 2rem;
-}
-
-.masthead-brand {
-  margin-bottom: 0;
-}
-
+.masthead {margin-bottom: 2rem;}
+.masthead-brand {margin-bottom: 0;}
 .nav-masthead .nav-link {
   padding: .5rem 0;
   font: 18px "Roboto Light", Helvetica, sans-serif;
@@ -25,29 +22,32 @@ h1 {
   background-color: transparent;
   border-bottom: .25rem solid transparent;
 }
-
 .nav-masthead .nav-link:hover,
-.nav-masthead .nav-link:focus {
-  border-bottom-color: #9bc1bc;
-}
-
-.nav-masthead .nav-link + .nav-link {
-  margin-left: 1rem;
-}
-
+.nav-masthead .nav-link:focus {border-bottom-color: #9bc1bc;}
+.nav-masthead .nav-link + .nav-link {margin-left: 1rem;}
 .nav-masthead .active {
   color: #f4f1bb;
   border-bottom-color: #f4f1bb;
 }
-
 @media (min-width: 48em) {
-  .masthead-brand {
-    float: left;
-  }
-  .nav-masthead {
-    float: right;
-  }
+  .masthead-brand {float: left;}
+  .nav-masthead {float: right;}
 }
+.cover {padding: 0 1.5rem;}
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: 700;
+}
+.cover-heading {
+  font: 45px "Lato", Helvetica, sans-serif;
+  text-shadow: 1px 1px 6px #6d6875;
+}
+
+h1 {
+  font: 45px "Lato", Helvetica, sans-serif;
+  text-shadow: 1px 1px 6px #6d6875;
+}
+
 
 .cat-image {
   width: 20%;
@@ -90,3 +90,44 @@ h1 {
   height: auto;
   border-radius: 20px;
 }
+
+.mastfoot {
+  color: #e6ebe0;
+  font: 12px "Roboto Light", Helvetica, sans-serif;
+}
+
+h2 {
+  color: #F4F1BB;
+  font: 25px "Lato", Helvetica, sans-serif;
+  text-shadow: 1px 1px 4px #6d6875;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.flan {
+  color: white;
+  font: 18px "Roboto Light", Helvetica, sans-serif;
+}
+
+.match {
+  color: white;
+  background-color: #ec368d;
+  border-style: none;
+  padding: 6px 16px;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.unmatch {
+  color: white;
+  background-color: #9BC1BC;
+  border-style: none;
+  padding: 6px 16px;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+a:focus,
+a:hover {color: #fff;}

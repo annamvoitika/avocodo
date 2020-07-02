@@ -7,7 +7,7 @@ h1 {
   font: 45px "Lato", Helvetica, sans-serif;
   text-shadow: 1px 1px 6px #6d6875;
 }
-.cover-container {max-width: 50em;}
+.cover-container {max-width: 60em;}
 .masthead {margin-bottom: 2rem;}
 .masthead-brand {margin-bottom: 0;}
 .nav-masthead .nav-link {
@@ -71,9 +71,10 @@ footer p {margin-bottom: .25rem;}
   justify-content: center;
   font: 16px "Roboto Light", Helvetica, sans-serif;
 }
-.view-user-profile {color: #ec368d;}
-a {color: white;}
+.view-user-profile {color: #ec368d;
+padding-right: 10px;}
 
+a {color: white;}
 
 .match-hyperlink {color: #ec368d;}
 a {color: white;}

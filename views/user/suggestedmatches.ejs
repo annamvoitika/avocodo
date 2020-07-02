@@ -11,59 +11,47 @@
 
   <link rel='stylesheet' href='/stylesheets/matching.css' />
 </head>
-<header class="masthead mb-auto">
-  <div class="inner">
-    <nav class="nav nav-masthead justify-content-center">
-      <a class="nav-link active" href="/user/myprofile">My Profile</a>
-      <a class="nav-link" href="/">Homepage</a>
-      <a class="nav-link" href="/user/matches">Your chosen bowlmates</a>
-      <a class="nav-link" href="/user/catches">More catches</a>
-      <a class="nav-link" href="/logout">Log out</a>
-    </nav>
-  </div>
-</header>
-
+<body class="text-center">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link" href="/">Homepage</a>
+          <a class="nav-link active" href="/user/myprofile">Profile</a>
+          <a class="nav-link" href="/user/suggested-matches">Suggested matches</a>
+          <a class="nav-link" href="/user/matches">Your bowlmates</a>
+          <a class="nav-link" href="/user/catches">More catches</a>
+          <a class="nav-link" href="/user/chat">Plenty of chat</a>
+          <a class="nav-link" href="/logout">Log Out</a>
+        </nav>
+      </div>
+    </header>
+<main role="main" class="inner cover">
 <center>
-<br>
-<br>
-<br>
 <h1> <%= name %>'s pending matches </h1>
-<br>
 <img src="https://media.giphy.com/media/l2RaVc3X521tIh4gU/giphy.gif" class="cheese-image" alt="melted cheese sandwich">
-<br>
-<br>
-<h2> Matches you requested: </h2>
+<h2> Matches you like a latte: </h2>
  <% for (var i = 0; i < usersuggestedmatches.length; i++) { %>
-     <br>
-     ❤️ Suggested match : <%= i+1 %>
-     <br>
+
+     ❤️ Your chosen match : <%= i+1 %>
+
      <a class="match" href="/user/profile/<%= usersuggestedmatches[i] %>">See their profile </a>
-     <br>
-     <a class="match" href="/user/unmatch/<%= usersuggestedmatches[i] %>">Ditch em</a>
 
-<br>
+     <a class="unmatch" href="/user/unmatch/<%= usersuggestedmatches[i] %>">Ditch em</a>
+
 <% } %>
-<center>
-<br>
   <h2> Matches interested in you: </h2>
-  <p> They could be your biggest flan. </p>
+  <p class="flan"> One of them could be your biggest flan </p>
   <% for (var i = 0; i < matchsuggestedmatches.length; i++) { %>
-      <br>
       ❓Proposed match : <%= i+1 %>
-      <br>
-      <a class="match" href="/user/profile/<%= matchsuggestedmatches[i] %>">See their profile</a>
-      <br>
-      <a class="match" href="/user/unmatch/<%= matchsuggestedmatches[i] %>">Ditch em</a>
-      <br>
-      <a class="match" href="/user/confirm/<%= matchsuggestedmatches[i] %>">Approve this match </a>
- <br>
- <% } %>
- <center>
 
-  <br>
-  <br>
-  <br>
-  <br>
+      <a class="match" href="/user/profile/<%= matchsuggestedmatches[i] %>">See their profile</a>
+
+      <a class="match" href="/user/unmatch/<%= matchsuggestedmatches[i] %>">Ditch em</a>
+
+      <a class="match" href="/user/confirm/<%= matchsuggestedmatches[i] %>">Approve this match </a>
+ <% } %>
+</main>
   <footer class="mastfoot mt-auto">
     <div class="inner">
       Copyright &copy; Plenty of Dish 2020

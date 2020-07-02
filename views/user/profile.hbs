@@ -31,16 +31,18 @@
       <div class="inner">
         <nav class="nav nav-masthead justify-content-center">
           <a class="nav-link" href="/">Homepage</a>
+          <a class="nav-link active" href="/user/myprofile">Profile</a>
           <a class="nav-link" href="/user/suggested-matches">Suggested matches</a>
-          <a class="nav-link" href="/user/myprofile">Profile</a>
-          <a class="nav-link" href="/user/matches">Your chosen bowlmates</a>
-          <a class="nav-link active" href="/user/catches">More catches</a>
+          <a class="nav-link" href="/user/matches">Your bowlmates</a>
+          <a class="nav-link" href="/user/catches">More catches</a>
           <a class="nav-link" href="/user/chat">Plenty of chat</a>
           <a class="nav-link" href="/logout">Log Out</a>
         </nav>
       </div>
     </header>
     <main role="main" class="inner cover">
+      <h1 class="cover-heading">Could this be your bowlmate? &#127837;</h1>
+      <div class="bowlmate">
       {{#each user}}
       <li>Name: {{this.name}}</li>
       <li>Age: {{this.age}}</li>
@@ -53,10 +55,13 @@
       <li>In the mornings I drink: {{this.amdrink}}</li>
       <li>PM poison of choice: {{this.pmdrink}}</li>
       <li>Guilty pleasures I don't share: {{this.guilty}}</li>
-      <a class="new-match" href="/user/chat/{{this.id}}">Let's chat</a>
-      <a class="no-match" href="/">Not for me</a>
-      <a class="report" href="/user/report/{{this._id}}">Report user</a>
+
+        <div class="button_back" style="text-align:center">
+          <a class="view-user-profile" href="/">Return to homepage</a>
+        </div>
+
       {{/each}}
+    </div>
     </main>
     <footer class="mastfoot mt-auto">
       <div class="inner">
