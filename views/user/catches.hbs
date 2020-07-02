@@ -39,12 +39,13 @@
         <header class="masthead mb-auto">
           <div class="inner">
             <nav class="nav nav-masthead justify-content-center">
-              <a class="nav-link" href="/">Homepage</a>
               <a class="nav-link" href="/user/myprofile">Profile</a>
+              <a class="nav-link" href="/">Homepage</a>
+              <a class="nav-link" href="/user/suggested-matches">Suggested matches</a>
               <a class="nav-link" href="/user/matches">Your chosen bowlmates</a>
               <a class="nav-link active" href="/user/catches">More catches</a>
               <a class="nav-link" href="/user/chat">Plenty of chat</a>
-              <a class="nav-link" href="/logout">Log Out</a>
+              <a class="nav-link" href="/logout">Log out</a>
             </nav>
           </div>
         </header>
@@ -59,7 +60,6 @@
 
       <div class="album">
         <div class="container">
-
           <div class="row justify-content-center">
             {{#each user}}
             <div class="col-md-4">
@@ -78,6 +78,8 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <a class="view-user-profile" href="/user/profile/{{this._id}}">View Profile</a>
+                      <br>
+                      <a class="match-hyperlink" href="/user/match/{{this._id}}">Let's Match</a>
                     </div>
                   </div>
                 </div>

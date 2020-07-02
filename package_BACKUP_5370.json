@@ -29,9 +29,11 @@
     "express": "~4.16.1",
     "express-handlebars": "^4.0.4",
     "express-session": "^1.17.1",
+
     "hbs": "^4.1.1",
 
     "express-ws": "^4.0.0",
+
     "http-errors": "~1.6.3",
     "mongoose": "^5.8.11",
     "morgan": "~1.9.1",
@@ -40,11 +42,10 @@
     "nodemon": "^1.19.4",
     "passport": "^0.4.1",
 
-    "reactjs-popup": "^1.5.0",
-
     "socket.io": "^2.3.0",
     "utf-8-validate": "^5.0.2",
     "ws": "^7.3.0"
+
   },
   "devDependencies": {
     "cypress": "^3.8.3",

@@ -15,7 +15,11 @@ const UserSchema = new mongoose.Schema({
   dessert: String,
   amdrink: String,
   pmdrink: String,
-  guilty: String
+  guilty: String,
+  reported: String,
+  matches: [mongoose.Schema.Types.ObjectId],
+  usersuggestedmatches: [mongoose.Schema.Types.ObjectId],
+  matchsuggestedmatches: [mongoose.Schema.Types.ObjectId],
 });
 
 UserSchema.pre('save', function (next) {
