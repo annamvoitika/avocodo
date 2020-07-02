@@ -16,17 +16,17 @@
       <header class="masthead mb-auto">
         <div class="inner">
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link" href="/user/myprofile">Profile</a>
             <a class="nav-link" href="/">Homepage</a>
+            <a class="nav-link" href="/user/myprofile">Profile</a>
             <a class="nav-link" href="/user/matches">Your chosen bowlmates</a>
             <a class="nav-link" href="/user/catches">More catches</a>
             <a class="nav-link active" href="/user/chat">Plenty of chat</a>
-            <a class="nav-link" href="/logout">Log out</a>
+            <a class="nav-link" href="/logout">Log Out</a>
           </nav>
         </div>
       </header>
-    </div>
-    <h1 class="cover-heading"> Let's taco bout us. Chat for all fruit & veg </h1>
+    <main role="main" class="inner cover">
+    <h1 class="cover-heading"> Let's taco bout us</h1>
     <h3 class="text-center">
       {{#each user}}
       <h2>Welcome, {{this.name}}!</h2>
