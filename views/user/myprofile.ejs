@@ -31,8 +31,8 @@
     <header class="masthead mb-auto">
       <div class="inner">
         <nav class="nav nav-masthead justify-content-center">
-          <a class="nav-link active" href="/user/myprofile">Profile</a>
           <a class="nav-link" href="/">Homepage</a>
+          <a class="nav-link active" href="/user/myprofile">Profile</a>
           <a class="nav-link" href="/user/matches">Your chosen bowlmates</a>
           <a class="nav-link" href="/user/catches">More catches</a>
           <a class="nav-link" href="/user/chat">Plenty of chat</a>
@@ -41,22 +41,24 @@
       </div>
     </header>
     <main role="main" class="inner cover">
-      <h1 class="cover-heading">Your Profile</h1>
-      <p class="lead mb-3">Name: <%= name %></p>
-      <p class="lead mb-3">Email: <%= email %></p>
-      <p class="lead mb-3">Age: <%= age %></p>
-      <p class="lead mb-3">Location: <%= location %></p>
-      <p class="lead mb-3">Zodiac Sign: <%= zodiac %></p>
-      <p class="lead mb-3">Favourite Breakfast Dish: <%= breakfast %></p>
-      <p class="lead mb-3">What Lunch Dreams are made of: <%= lunch %></p>
-      <p class="lead mb-3">Winner Winner ... Dinner: <%= dinner %></p>
-      <p class="lead mb-3">Save space for dessert: <%= dessert %></p>
-      <p class="lead mb-3">In the mornings I drink: <%= amdrink %></p>
-      <p class="lead mb-3">PM poison of choice: <%= pmdrink %></p>
-      <p class="lead mb-3">Guilty pleasures I don't share: <%= guilty %></p>
+      <h1 class="cover-heading">Your Egg-cellent Profile</h1>
+      <div class="profile_info">
+      <p class="form_title mb-3"><span class="form_style">Name:</span> <%= name %></p>
+      <p class="form_title mb-3"><span class="form_style">Email:</span> <%= email %></p>
+      <p class="form_title mb-3"><span class="form_style">Age:</span> <%= age %></p>
+      <p class="form_title mb-3"><span class="form_style">Location:</span> <%= location %></p>
+      <p class="form_title mb-3"><span class="form_style">Zodiac Sign:</span> <%= zodiac %></p>
+      <p class="form_title mb-3"><span class="form_style">Favourite Breakfast Dish:</span> <%= breakfast %></p>
+      <p class="form_title mb-3"><span class="form_style">What Lunch Dreams are made of:</span> <%= lunch %></p>
+      <p class="form_title mb-3"><span class="form_style">Winner Winner ... Dinner:</span> <%= dinner %></p>
+      <p class="form_title mb-3"><span class="form_style">Save space for dessert:</span> <%= dessert %></p>
+      <p class="form_title mb-3"><span class="form_style">In the mornings I drink:</span> <%= amdrink %></p>
+      <p class="form_title mb-3"><span class="form_style">PM poison of choice:</span> <%= pmdrink %></p>
+      <p class="form_title mb-3"><span class="form_style">Guilty pleasures I don't share:</span> <%= guilty %></p>
       <br>
+    </div>
       <form action="/user/<%= id %>/edit" method="get">
-        <input type="submit" value="Edit &#9998;" />
+        <input type="submit" value="Edit profile &#9997;" />
       </form>
     </main>
     <footer class="mastfoot mt-auto">
