@@ -21,6 +21,7 @@
       -ms-user-select: none;
       user-select: none;
     }
+<<<<<<< HEAD
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
@@ -60,6 +61,47 @@
       <div class="album">
         <div class="container">
 
+=======
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link rel='stylesheet' href='/stylesheets/catches.css' />
+</head>
+
+<body>
+  <main role="main">
+    <div class="text-center">
+      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+          <div class="inner">
+            <nav class="nav nav-masthead justify-content-center">
+              <a class="nav-link" href="/">Homepage</a>
+              <a class="nav-link" href="/user/myprofile">Profile</a>
+              <a class="nav-link" href="/user/matches">Your chosen bowlmates</a>
+              <a class="nav-link active" href="/user/catches">More catches</a>
+              <a class="nav-link" href="/user/chat">Plenty of chat</a>
+              <a class="nav-link" href="/logout">Log Out</a>
+            </nav>
+          </div>
+        </header>
+      </div>
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1>Find your one in a melon &#127817;</h1>
+          <p class="description">View profiles of your potential pears. We're rooting for you! </p>
+        </div>
+      </section>
+
+      <div class="album">
+        <div class="container">
+
+>>>>>>> master
           <div class="row justify-content-center">
             {{#each user}}
             <div class="col-md-4">
@@ -79,9 +121,12 @@
                     <div class="btn-group">
                       <a class="view-user-profile" href="/user/profile/{{this._id}}">View Profile</a>
                     </div>
+<<<<<<< HEAD
                     <div class="btn-group">
                       <a class="match-hyperlink" href="/user/match/{{this._id}}">Let's Match</a>
                     </div>
+=======
+>>>>>>> master
                   </div>
                 </div>
               </div>
