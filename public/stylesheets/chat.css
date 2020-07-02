@@ -1,0 +1,155 @@
+html,
+body {
+  height: 100%;
+  background-image: linear-gradient(to right, #9bc1bc , #636FA4);
+}
+h1 {
+  color: white;
+  font: 45px "Lato", Helvetica, sans-serif;
+  text-shadow: 1px 1px 6px #6d6875;
+  padding-top: 100px;
+}
+h2 {
+  color: white;
+  font: 28px "Roboto Light", Helvetica, sans-serif;
+}
+.container {
+  max-width:1170px;
+  margin:auto;
+}
+img {max-width:100%;}
+.inbox_people {
+  background: #9BC1BC none repeat scroll 0 0;
+  float: left;
+  overflow: hidden;
+}
+.inbox_msg {
+  clear: both;
+  overflow: hidden;
+  color: black;
+  font: 18px "Roboto Light", Helvetica, sans-serif;
+}
+.top_spac {margin: 20px 0 0;}
+.recent_heading {
+  float: left;
+  width:40%;
+}
+.srch_bar {
+  display: inline-block;
+  text-align: right;
+  width: 60%;
+}
+.headind_srch {
+  padding:10px 29px 10px 20px;
+  overflow:hidden;
+  border-bottom:1px solid #c4c4c4;
+}
+.srch_bar input {
+  border:1px solid #cdcdcd;
+  border-width:0 0 1px 0;
+  width:80%;
+  padding:2px 0 4px 6px;
+  background:none;
+}
+.srch_bar .input-group-addon button {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  padding: 0;
+  color: #707070;
+  font-size: 18px;
+}
+.srch_bar .input-group-addon {margin: 0 0 0 -27px;}
+.chat_img {
+  float: left;
+  width: 11%;
+}
+.chat_people {
+  overflow:hidden;
+  clear:both;
+}
+.users_online {
+  float: right;
+  font: 16px "Roboto Light", Helvetica, sans-serif;
+  color: white;
+  padding-right: 25%;
+  padding-top: 15px;
+}
+.users {
+  color: #F4F1BB;
+}
+.inbox_chat {
+  height: 550px;
+  overflow-y: scroll;
+}
+.incoming_msg_img {
+  display: inline-block;
+  width: 6%;
+}
+.input_msg_write input {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: black;
+  font-size: 17px;
+  min-height: 48px;
+  width: 100%;
+}
+.type_msg {
+  border-top: 1px solid #c4c4c4;
+  position: relative;
+}
+.msg_send_btn {
+  background: #EC368D none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 11px;
+  width: 33px;
+}
+.messaging {
+  padding: 10% 25% 25% 25%;
+}
+.whisper {
+  color: #432371;
+  font-style: italic;
+}
+.instructions {
+  float:left;
+  font: 16px "Roboto Light", Helvetica, sans-serif;
+  color: #22272c;
+  padding-top: 15px;
+  padding-left: 25%;
+}
+.masthead {
+  margin-bottom: 2rem;
+}
+.masthead-brand {
+  margin-bottom: 0;
+}
+.nav-masthead .nav-link {
+  padding: .5rem 0;
+  font: 18px "Roboto Light", Helvetica, sans-serif;
+  font-weight: 400;
+  color: #e6ebe0;
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {border-bottom-color: #9bc1bc;}
+.nav-masthead .nav-link + .nav-link {margin-left: 1rem;}
+.nav-masthead .active {
+  color: #f4f1bb;
+  border-bottom-color: #f4f1bb;
+}
+@media (min-width: 48em) {
+  .masthead-brand {float: left;}
+  .nav-masthead {float: right;}
+}
+.inner {
+  color: #e6ebe0;
+  font: 12px "Roboto Light", Helvetica, sans-serif;
+}
