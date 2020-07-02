@@ -12,8 +12,10 @@ const fileUpload = require('express-fileupload')
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const nodemailer = require('nodemailer');
 const io = require('socket.io')(4000)
 
+require('dotenv').config();
 
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
