@@ -42,8 +42,6 @@
     "nodemon": "^1.19.4",
     "passport": "^0.4.1",
 
-    "reactjs-popup": "^1.5.0",
-
     "socket.io": "^2.3.0",
     "utf-8-validate": "^5.0.2",
     "ws": "^7.3.0"
