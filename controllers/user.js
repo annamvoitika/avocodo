@@ -99,8 +99,8 @@ const UserController = {
         usersuggestedmatches: match
       }
     }).then();
-
-    //write match into the matches db
+    console.log('after first update');
+    // write match into the matches db
     User.updateOne({
       _id: match
     }, {
@@ -109,6 +109,7 @@ const UserController = {
       }
     }).then();
 
+    console.log('after second update');
     res.status(201).redirect('/user/suggested-matches');
   },
 
