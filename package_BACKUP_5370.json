@@ -29,12 +29,11 @@
     "express": "~4.16.1",
     "express-handlebars": "^4.0.4",
     "express-session": "^1.17.1",
-<<<<<<< HEAD
+
     "hbs": "^4.1.1",
-=======
+
     "express-ws": "^4.0.0",
-    "hbs": "^4.1.0",
->>>>>>> master
+
     "http-errors": "~1.6.3",
     "mongoose": "^5.8.11",
     "morgan": "~1.9.1",
@@ -42,14 +41,13 @@
     "nodemailer-express-handlebars": "^4.0.0",
     "nodemon": "^1.19.4",
     "passport": "^0.4.1",
-<<<<<<< HEAD
+
     "reactjs-popup": "^1.5.0",
-    "web-push": "^3.4.4"
-=======
+
     "socket.io": "^2.3.0",
     "utf-8-validate": "^5.0.2",
     "ws": "^7.3.0"
->>>>>>> master
+
   },
   "devDependencies": {
     "cypress": "^3.8.3",

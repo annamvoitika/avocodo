@@ -19,14 +19,9 @@ const UserController = {
     });
 
   },
-<<<<<<< HEAD
 
   ViewUserProfile: function(req, res) {
     User.findOne({_id: req.session.user._id}, function(err, user) {
-=======
-  ViewUserProfile: function (req, res) {
-    User.findOne({ _id: req.session.user._id }, function (err, user) {
->>>>>>> master
       res.render('user/myprofile', {
         id: user._id,
         name: user.name,
@@ -53,7 +48,7 @@ const UserController = {
       res.render('user/edit.hbs', { user: user });
     });
   },
-<<<<<<< HEAD
+
   Update: function(req, res) {
 
     User.findOneAndUpdate({
@@ -73,28 +68,6 @@ const UserController = {
     }},
 
     function(err, user) {
-=======
-  Update: function (req, res) {
-    User.findOneAndUpdate({
-      _id: req.params._id
-    },
-      {
-        $set: {
-          name: req.body.name,
-          email: req.body.email,
-          age: req.body.age,
-          location: req.body.location,
-          zodiac: req.body.zodiac,
-          breakfast: req.body.breakfast,
-          lunch: req.body.lunch,
-          dinner: req.body.dinner,
-          dessert: req.body.dessert,
-          amdrink: req.body.amdrink,
-          pmdrink: req.body.pmdrink,
-          guilty: req.body.guilty
-        }
-      },
-      function (err, user) {
         if (err) {
           throw err;
         }
@@ -109,13 +82,11 @@ const UserController = {
   },
   Chat: function (req, res) {
     User.find({ _id: req.session.user._id }, function (err, user) {
->>>>>>> master
       if (err) {
         throw err;
       }
       res.render('chat.hbs', { user: user });
     });
-<<<<<<< HEAD
   },
 
   Match: function(req, res){
@@ -294,13 +265,12 @@ Report:function(req, res) {
 },
 
   RandomCatch: function(req, res) {
-        User.aggregate([{$sample: {size: 2}}], function(err, user) {
+    User.aggregate([{$sample: {size: 2}}], function(err, user) {
       if (err) { throw err; }
           res.render('user/catches.hbs', { user: user });
-         });
+        });
       }
-=======
->>>>>>> master
+
   }
 }
 
