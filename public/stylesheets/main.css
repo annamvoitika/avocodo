@@ -6,6 +6,7 @@
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
+	background-image: linear-gradient(to top left, #D6BFBC , #636FA4);
 }
 /*---------------------------------------------*/
 a {

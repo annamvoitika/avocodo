@@ -14,7 +14,7 @@ body {
   color: white;
 }
 .cover-container {
-  max-width: 50em;
+  max-width: 60em;
 }
 .masthead {margin-bottom: 2rem;}
 .masthead-brand {margin-bottom: 0;}
@@ -105,4 +105,25 @@ input[type=submit] {
   }
   .form-group{
     padding-bottom: 10px;
+  }
+  .bowlmate {
+    font: 20px "Roboto Light", Helvetica, sans-serif;
+    padding-top: 30px;
+  }
+  li {
+    list-style: none;
+  }
+  .view-user-profile {
+    color: white;
+    font: 18px "Roboto Light", Helvetica, sans-serif;
+    background-color: #9BC1BC;
+    border-color: #EC368D;
+    border-radius: 3px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .button_back {
+    margin-top: 30px;
   }

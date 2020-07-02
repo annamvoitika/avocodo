@@ -32,8 +32,9 @@
     "express-fileupload": "^1.1.7-alpha.3",
     "express-handlebars": "^4.0.4",
     "express-session": "^1.17.1",
+    "hbs": "^4.1.1",
+
     "express-ws": "^4.0.0",
-    "hbs": "^4.1.0",
     "http-errors": "~1.6.3",
     "lodash": "^4.17.15",
     "mongoose": "^5.8.11",
@@ -44,6 +45,9 @@
     "nodemailer-express-handlebars": "^4.0.0",
     "nodemon": "^1.19.4",
     "passport": "^0.4.1",
+
+    "reactjs-popup": "^1.5.0",
+
     "socket.io": "^2.3.0",
     "utf-8-validate": "^5.0.2",
     "ws": "^7.3.0"

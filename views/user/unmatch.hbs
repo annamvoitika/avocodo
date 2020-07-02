@@ -1,0 +1,47 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Plenty of Dish</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel='stylesheet' href='/stylesheets/matching.css'/>
+</head>
+
+<body class="text-center">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+    <nav class="nav nav-masthead justify-content-center">
+      <a class="nav-link" href="/">Homepage</a>
+      <a class="nav-link active" href="/user/myprofile">Profile</a>
+      <a class="nav-link" href="/user/suggested-matches">Suggested matches</a>
+      <a class="nav-link" href="/user/matches">Your bowlmates</a>
+      <a class="nav-link" href="/user/catches">More catches</a>
+      <a class="nav-link" href="/user/chat">Plenty of chat</a>
+      <a class="nav-link" href="/logout">Log Out</a>
+    </nav>
+  </div>
+</header>
+<main role="main" class="inner cover">
+<h1> You unmatched </h1>
+<center>
+  <div class="image">
+<img src="https://tenor.com/view/idump-dump-your-ass-dumpyourass-gif-14510083.gif" class="dump-image" alt="stranger things i dump your ass gif">
+</div>
+</main>
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      Copyright &copy; Plenty of Dish 2020
+    </div>
+  </footer>
+
+  <script>
+    var timer = setTimeout(function() {
+        window.location='/user/unmatch2/{{match}}'
+    }, 3000);
+    </script>

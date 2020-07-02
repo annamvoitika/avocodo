@@ -1,0 +1,59 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Plenty of Dish</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel='stylesheet' href='/stylesheets/matching.css' />
+</head>
+<body class="text-center">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link" href="/">Homepage</a>
+          <a class="nav-link active" href="/user/myprofile">Profile</a>
+          <a class="nav-link" href="/user/suggested-matches">Suggested matches</a>
+          <a class="nav-link" href="/user/matches">Your bowlmates</a>
+          <a class="nav-link" href="/user/catches">More catches</a>
+          <a class="nav-link" href="/user/chat">Plenty of chat</a>
+          <a class="nav-link" href="/logout">Log Out</a>
+        </nav>
+      </div>
+    </header>
+<main role="main" class="inner cover">
+<center>
+<h1> <%= name %>'s pending matches </h1>
+<img src="https://media.giphy.com/media/l2RaVc3X521tIh4gU/giphy.gif" class="cheese-image" alt="melted cheese sandwich">
+<h2> Matches you like a latte: </h2>
+ <% for (var i = 0; i < usersuggestedmatches.length; i++) { %>
+
+     ❤️ Your chosen match : <%= i+1 %>
+
+     <a class="match" href="/user/profile/<%= usersuggestedmatches[i] %>">See their profile </a>
+
+     <a class="unmatch" href="/user/unmatch/<%= usersuggestedmatches[i] %>">Ditch em</a>
+
+<% } %>
+  <h2> Matches interested in you: </h2>
+  <p class="flan"> One of them could be your biggest flan </p>
+  <% for (var i = 0; i < matchsuggestedmatches.length; i++) { %>
+      ❓Proposed match : <%= i+1 %>
+
+      <a class="match" href="/user/profile/<%= matchsuggestedmatches[i] %>">See their profile</a>
+
+      <a class="match" href="/user/unmatch/<%= matchsuggestedmatches[i] %>">Ditch em</a>
+
+      <a class="match" href="/user/confirm/<%= matchsuggestedmatches[i] %>">Approve this match </a>
+ <% } %>
+</main>
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      Copyright &copy; Plenty of Dish 2020
+    </div>
+  </footer>
