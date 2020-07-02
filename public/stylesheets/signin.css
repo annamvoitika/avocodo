@@ -1,0 +1,59 @@
+html,
+body{
+    height: 100%;
+    margin: 0;
+    font: "Lato", Helvetica, sans-serif;
+    background: rgb(2,0,36);
+          background-image: linear-gradient(to right, #E8CBC0 , #636FA4);
+
+  }
+
+.d-flex justify-content-center {
+  font: 45px "Lato", Helvetica, sans-serif;
+  text-shadow: 1px 1px 6px #6d6875;
+}
+
+ .myForm{
+  background-color: rgba(0,0,0,0.5) !important;
+  padding: 15px !important;
+ border-radius: 15px !important;
+ color: white;
+
+ }
+
+ input{
+  border-radius:0 15px 15px 0 !important;
+
+ }
+ input:focus{
+     outline: none;
+box-shadow:none !important;
+border:1px solid #ccc !important;
+
+ }
+
+ .br-15{
+  border-radius: 15px 0 0 15px !important;
+ }
+
+ #sign_up{
+  color: white !important;
+  background-color: #fa8231 !important;
+  border-radius: 15px !important;
+  border: 0 !important;
+
+ }
+ #remove_more{
+  color: white !important;
+  background-color: #fc5c65 !important;
+  border-radius: 15px !important;
+  border: 0 !important;
+  display: none;
+
+ }
+
+ .submit_btn{
+  border-radius: 15px !important;
+  background-color: #95c714 !important;
+  border: 0 !important;
+ }

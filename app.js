@@ -7,6 +7,11 @@ const logger = require('morgan');
 const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
+const AWS = require('aws-sdk');
+const fileUpload = require('express-fileupload')
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const nodemailer = require('nodemailer');
 const io = require('socket.io')(4000)
 
@@ -14,6 +19,7 @@ require('dotenv').config();
 
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
+const imageRouter = require('./routes/image-upload');
 
 
 const app = express();
@@ -31,12 +37,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session({'secret':"hgfdfgh",resave:true,saveUninitialized:true}))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload({
+    useTempFiles : true,
+    tempFileDir : 'public/images/ProfilePics',
+    safeFileNames: true,
+    preserveExtension: true
+}));
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(morgan('dev'));
 app.use("/public", express.static('public'))
 
 
 // route setup
 app.use('/', homeRouter);
 app.use('/user', userRouter);
+app.use('/image', imageRouter);
 
 
 //socket.io
@@ -86,7 +103,6 @@ io.sockets.on('connection',function(socket){
   });
 
 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -102,7 +118,6 @@ app.use(function(err, req, res) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 
 module.exports = app;

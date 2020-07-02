@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt'),
   SALT_WORK_FACTOR = 10;
 
 const UserSchema = new mongoose.Schema({
+  avatar: String,
   name: String,
   age: Number,
   email: String,
