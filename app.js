@@ -7,8 +7,10 @@ const logger = require('morgan');
 const ejs = require('ejs');
 const hbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
+const nodemailer = require('nodemailer');
 const io = require('socket.io')(4000)
 
+require('dotenv').config();
 
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
