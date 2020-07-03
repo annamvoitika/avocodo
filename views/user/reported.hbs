@@ -9,45 +9,41 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <link rel='stylesheet' href='/stylesheets/matching.css'/>
+  <link rel='stylesheet' href='/stylesheets/homepage.css'/>
 </head>
-<header class="masthead mb-auto">
+<body class="text-center">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link active" href="/">Homepage</a>
+          <a class="nav-link" href="/user/myprofile">Profile</a>
+          <a class="nav-link" href="/user/suggested-matches">Suggested matches</a>
+          <a class="nav-link" href="/user/matches">Your bowlmates</a>
+          <a class="nav-link" href="/user/catches">More catches</a>
+          <a class="nav-link" href="/user/chat">Plenty of chat</a>
+          <a class="nav-link" href="/logout">Log Out</a>
+        </nav>
+      </div>
+    </header>
+    <main role="main" class="inner cover">
+
+<h1 class="cover-heading"> You reported this user </h1>
+
+<p class="lead"> One of our staff will look into their profile. </p>
+
+</main>
+<footer class="mastfoot mt-auto">
   <div class="inner">
-    <nav class="nav nav-masthead justify-content-center">
-      <a class="nav-link" href="/">Homepage</a>
-      <a class="nav-link active" href="/user/myprofile">Profile</a>
-      <a class="nav-link" href="/user/suggested-matches">Suggested matches</a>
-      <a class="nav-link" href="/user/matches">Your bowlmates</a>
-      <a class="nav-link" href="/user/catches">More catches</a>
-      <a class="nav-link" href="/user/chat">Plenty of chat</a>
-      <a class="nav-link" href="/logout">Log Out</a>
-    </nav>
+    Copyright &copy; Plenty of Dish 2020
   </div>
-</header>
-  <br>
-  <br>
-  <br>
-<center>
-  <h1> You reported this user. </h1>
-<h2> One of our staff will look into their profile. </h2>
-</center>
-<br>
-<center>
-<center>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <footer class="mastfoot mt-auto">
-    <div class="inner">
-      Copyright &copy; Plenty of Dish 2020
-    </div>
-  </footer>
+</footer>
 
   <script>
     var timer = setTimeout(function() {
         window.location='/'
     }, 3000);
     </script>
+
+  </body>

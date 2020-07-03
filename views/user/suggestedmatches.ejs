@@ -35,9 +35,11 @@
 
      ❤️ Your chosen match : <%= i+1 %>
 
-     <a class="match" href="/user/profile/<%= usersuggestedmatches[i] %>">See their profile </a>
+     <a class="viewthem" href="/user/profile/<%= usersuggestedmatches[i] %>">See their profile </a>
 
      <a class="unmatch" href="/user/unmatch/<%= usersuggestedmatches[i] %>">Ditch em</a>
+     <br>
+     <br>
 
 <% } %>
   <h2> Matches interested in you: </h2>
@@ -45,11 +47,13 @@
   <% for (var i = 0; i < matchsuggestedmatches.length; i++) { %>
       ❓Proposed match : <%= i+1 %>
 
-      <a class="match" href="/user/profile/<%= matchsuggestedmatches[i] %>">See their profile</a>
+      <a class="viewthem" href="/user/profile/<%= matchsuggestedmatches[i] %>">See their profile</a>
 
-      <a class="match" href="/user/unmatch/<%= matchsuggestedmatches[i] %>">Ditch em</a>
+      <a class="unmatch" href="/user/unmatch/<%= matchsuggestedmatches[i] %>">Ditch em</a>
 
       <a class="match" href="/user/confirm/<%= matchsuggestedmatches[i] %>">Approve this match </a>
+      <br>
+      <br>
  <% } %>
 </main>
   <footer class="mastfoot mt-auto">

@@ -127,3 +127,9 @@ input[type=submit] {
   .button_back {
     margin-top: 30px;
   }
+  .potato-image {
+    width: 15%;
+    max-width: 15%;
+    height: auto;
+    border-radius: 8px;
+  }

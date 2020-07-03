@@ -129,5 +129,15 @@ h2 {
   margin-right: 10px;
 }
 
+.viewthem {
+  color: white;
+  background-color: #8078AF;
+  border-style: none;
+  padding: 6px 16px;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 a:focus,
 a:hover {color: #fff;}

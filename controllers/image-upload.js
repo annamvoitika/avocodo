@@ -8,7 +8,7 @@ const ImageUploadController = {
 
   Uploaded: function (req, res) {
     const sampleFile = req.files.sampleFile
-    const imagePath = '/Users/kqazi2/Projects/week11&12 Final Project/avocodo/public/images/ProfilePics/' + sampleFile.name 
+    const imagePath = '/Users/student/Projects/avocodo/public/images/ProfilePics/' + sampleFile.name 
     const displayImagePath = '/public/images/ProfilePics/' + sampleFile.name 
     sampleFile.mv(imagePath , function(err) {
       if (err) {

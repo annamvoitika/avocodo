@@ -9,41 +9,37 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <link rel='stylesheet' href='/stylesheets/matching.css'/>
+  <link rel='stylesheet' href='/stylesheets/homepage.css'/>
 </head>
-<header class="masthead mb-auto">
-  <div class="inner">
-    <nav class="nav nav-masthead justify-content-center">
-      <a class="nav-link" href="/">Homepage</a>
-      <a class="nav-link active" href="/user/myprofile">Profile</a>
-      <a class="nav-link" href="/user/suggested-matches">Suggested matches</a>
-      <a class="nav-link" href="/user/matches">Your bowlmates</a>
-      <a class="nav-link" href="/user/catches">More catches</a>
-      <a class="nav-link" href="/user/chat">Plenty of chat</a>
-      <a class="nav-link" href="/logout">Log Out</a>
-    </nav>
-  </div>
-</header>
-  <br>
-  <br>
-  <br>
-<center><h1> Look familiar? </h1></center>
-<br>
-<center><h2> You just tried to match with yourself {{name}}! </h2></center>
-<br>
-<center><p>  Maybe you don't need this site... <p> <center>
-<br>
-<center>
+<body class="text-center">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link active" href="/">Homepage</a>
+          <a class="nav-link" href="/user/myprofile">Profile</a>
+          <a class="nav-link" href="/user/suggested-matches">Suggested matches</a>
+          <a class="nav-link" href="/user/matches">Your bowlmates</a>
+          <a class="nav-link" href="/user/catches">More catches</a>
+          <a class="nav-link" href="/user/chat">Plenty of chat</a>
+          <a class="nav-link" href="/logout">Log Out</a>
+        </nav>
+      </div>
+    </header>
+    <main role="main" class="inner cover">
+
+<h1 class="cover-heading"> Looks familiar? </h1>
+
+<p class="lead"> You just tried to match with yourself {{name}}! </p>
+
+<p class="lead">  Maybe you don't need this site... </p>
+
+
 <img src="https://media.giphy.com/media/WNizdCzxQMlb0Ho9OB/giphy.gif" class="potato-image" alt="potato in love with mirror">
-</center>
-<br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <center>
+
+
+  </main>
   <footer class="mastfoot mt-auto">
     <div class="inner">
       Copyright &copy; Plenty of Dish 2020
@@ -56,3 +52,4 @@
         window.location='/user/catches'
     }, 4000);
     </script>
+  </body>
